@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  ##before_filter :is_profile_complete
+  #before_filter :is_profile_complete
 
   helper_method :current_user
 
