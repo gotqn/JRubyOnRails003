@@ -1,0 +1,64 @@
+<h1 class='main-title'>Webinars</h1>
+
+<%= simple_form_for :search, url: webinars_path, method: 'get' do |f| %>
+    <%= f.input :search_name,
+                label: 'Title',
+                input_html: { value: params[:search] ? params[:search][:search_name]: nil,
+                              data: {autocomplete_source: Webinar.order(:name).map(&:name)}},
+                required: false %>
+    <%= f.input :search_access_type, collection: Webinar::ACCESS_TYPES_MESSAGES,
+                label_method: :last,
+                value_method: :first,
+                as: :radio_buttons ,
+                label: 'Security access',
+                checked: params[:search] ? params[:search][:search_access_type] : Webinar::ACCESS_TYPES_MESSAGES[0][0],
+                required: false %>
+    <%= f.input :search_is_active, collection: [[1, 'Yes'] ,[0, 'No'], ['skip', 'Both']],
+                label_method: :last,
+                value_method: :first,
+                as: :radio_buttons ,
+                label: 'Displayed in webinars gallery',
+                checked: params[:search] ? params[:search][:search_is_active] : 1,
+                required: false %>
+    <%= f.button :submit, 'Search', :name => nil  %>
+<% end %>
+
+<table cellspacing='0px' cellpadding='0px' class='webinars'>
+<% @webinars.each do |webinar| %>
+    <tr class='webinar' id='<%= webinar.id %>'>
+        <td>
+          <div class='screenshot'>
+             <%= link_to image_tag(webinar.video.url(:thumb)), webinar_path(webinar), remote:true %>
+          </div>
+        </td>
+        <td>
+          <div class='main'>
+            <div class='info'>
+              <span class='number'>Webinar #<%= webinar.id %></span> - <span class='published_at'><%= webinar.created_at.strftime("%B #{webinar.created_at.day.ordinalize}, %Y") %></span>
+            </div>
+            <h2><%= link_to webinar.name, webinar_path(webinar), remote:true %></h2>
+            <div class='description'>
+              <%= webinar.short_summary 200 %>
+              <span class='stats'>(<%= distance_of_time_in_words(webinar.get_video_duration) %>)</span>
+            </div>
+            <div class='watch'>
+              <%= link_to 'Watch Webinar', webinar, class: 'blue_button', remote:true %>
+              <%= link_to 'Edit Webinar', edit_webinar_path(webinar), class: 'red_button', remote:true %>
+              <%= link_to 'Destroy Webinar', webinar, method: :delete, data: { confirm: 'Are you sure?' }, class: 'red_button', remote:true %>
+            </div>
+          </div>
+        </td>
+    </tr>
+<% end %>
+</table>
+
+
+
+
+
+
+
+
+
+
+

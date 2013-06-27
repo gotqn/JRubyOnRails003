@@ -1,0 +1,137 @@
+// Place all the styles related to the webinars controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.webinars {
+
+  width: 600px;
+  padding: 10px;
+
+  tr.webinar {
+
+    td{
+      padding: 20px 0px;
+      border-bottom: 1px solid rgb(229, 229, 229);
+    }
+
+    td:nth-child(1) {
+
+      width: 200px;
+      vertical-align: top;
+
+      .screenshot {
+
+        a {
+          color: #1B97F2;
+          text-decoration: none;
+        }
+        img {
+          border: solid 1px #999;
+          display: block;
+          height: 125px;
+          width: 200px;
+        }
+      }
+    }
+
+    td:nth-child(2) {
+
+      vertical-align: top;
+
+      .main {
+
+        margin-left: 15px;
+
+        .info {
+          color: #999;
+          font-size: 12px;
+          .number {
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+
+        h2 {
+          margin: 3px 0px;
+          a {
+
+            color: #E98C08;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+
+
+        .description {
+
+          width: 350px;
+          margin-bottom: 15px;
+          text-align:justify;
+
+          span.stats {
+            font-size: 11px;
+            color: #777;
+            font-weight: normal;
+            padding-left: 3px;
+            display: inline-block;
+          }
+        }
+
+        .watch {
+
+        }
+      }
+
+    }
+
+  }
+}
+
+.blue_button{
+  font-size: 13px;
+  padding: 5px 10px 6px 10px;
+  font-weight: bold;
+  border: 1px solid #466a98;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  color: #FFF;
+  background: #386FB2;
+  background: -webkit-gradient(linear, left top, left bottom, from(#67b0ef), to(#2b5ea4));
+  background: -moz-linear-gradient(top, #67b0ef, #2b5ea4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67B0EF', endColorstr='#2B5EA4');
+  text-decoration: none;
+  text-shadow: 0 -1px 0 #036;
+}
+
+.orange_button{
+
+}
+
+.red_button{
+  font-size: 13px;
+  padding: 5px 10px 6px 10px;
+  font-weight: bold;
+  border: 1px solid #6f2c26;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  color: #FFF;
+  background: #A23831;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f98179), to(#a23831));
+  background: -moz-linear-gradient(top, #f98179, #a23831);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F98179', endColorstr='#A23831');
+  text-decoration: none;
+  text-shadow: 0 -1px 0 #661514;
+}
+
+
+div.webinar-container {
+
+  width: 500px;
+  padding-bottom: 15px;
+
+}
+
+

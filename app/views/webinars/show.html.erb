@@ -1,0 +1,12 @@
+<div class="webinar-container">
+
+    <p>
+      <b>Summary:</b>
+      <%= @webinar.summary %>
+    </p>
+
+    <p>
+      <video src="<%= @webinar.video.url(:medium) %>" width="320" height="240"></video>
+    </p>
+
+</div>

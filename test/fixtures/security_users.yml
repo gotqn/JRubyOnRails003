@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  password_digest: MyString
+  registration_date: 2013-05-15 21:10:39
+  last_log_in_date: 2013-05-15 21:10:39
+  is_active: false
+  activation_code: MyString
+  role: MyString
+
+two:
+  email: MyString
+  password_digest: MyString
+  registration_date: 2013-05-15 21:10:39
+  last_log_in_date: 2013-05-15 21:10:39
+  is_active: false
+  activation_code: MyString
+  role: MyString

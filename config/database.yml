@@ -1,0 +1,29 @@
+development:
+  adapter: jdbc
+  driver: com.ibm.db2.jcc.DB2Driver
+  url: jdbc:db2://localhost:50000/devp
+  host: localhost
+  port: 50000
+  database: devp
+  username: db2inst1
+  password: odissea
+
+test:
+    adapter: jdbc
+    driver: com.ibm.db2.jcc.DB2Driver
+    url: jdbc:db2://localhost:50000/test
+    host: localhost
+    port: 50000
+    database: test
+    username: db2inst1
+    password: odissea
+
+production:
+  adapter: jdbc
+  driver: com.ibm.db2.jcc.DB2Driver
+  url: jdbc:db2://localhost:50000/prod
+  host: localhost
+  port: 50000
+  database: prod
+  username: db2inst1
+  password: odissea

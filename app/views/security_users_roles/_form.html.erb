@@ -1,0 +1,24 @@
+<%= simple_form_for @security_users_role, validate: true, remote: true do |f| %>
+
+    <%= f.input :role, label: 'Role',
+                input_html: { placeholder:'Admin'},
+                label_html: { 'data-icon' => 'e' } %>
+    <%= f.input :description, label: 'Short description', as: :text,
+                input_html: { placeholder:'Supper user role with unlimited access.'},
+                label_html: { 'data-icon' => 'e' } %>
+
+    <%
+       case params[:action]
+       when 'edit'
+         btn_text = 'Save Changes'
+       when 'new'
+         btn_text = 'Create Role'
+       else
+         btn_text = params[:action]
+       end
+    %>
+
+    <%= f.button :submit, btn_text %>
+
+<% end %>
+

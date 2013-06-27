@@ -1,0 +1,27 @@
+<%= simple_form_for :session, url: sessions_path, html: { class: 'login'}, remote:true do |f| %>
+
+    <h1>Log In</h1>
+
+    <%= f.input :email, label: 'Your email',
+                label_html: { class: 'youmail', 'data-icon' => 'e'},
+                input_html: { placeholder:'mysupermail@mail.com'} %>
+    <%= f.input :password, label: 'Your password',
+                label_html: { class: 'youpasswd', 'data-icon' => 'p' },
+                input_html: { placeholder:'eg. X8df!90EO'} %>
+
+
+    <p class='b-keep-me-login'>
+      <input type='checkbox' name='b-keep-me-login' id='b-keep-me-login' value='1' />
+      <label for='b-keep-me-login'>Keep me logged in</label>
+      <%= link_to 'forgotten password?', new_password_reset_path, remote:true %>
+    </p>
+    <p class='login button'>
+      <input name='commit' type='submit' value='Login' />
+    </p>
+    <div class='b-session-notice'><%= notice %></div>
+    <p class='b-change-link'>
+      Not a member yet ?
+      <a href='#toregister' class='to_register'>Join us</a>
+    </p>
+
+<% end %>

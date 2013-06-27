@@ -1,0 +1,207 @@
+.simple_form:not(.signup):not(.login) {
+
+  $length: 300px;
+  $height: 100px;
+  width:650px;
+  margin-bottom:50px;
+
+  label {
+    color: rgb(64, 92, 96);
+    position: relative;
+    display: inline-block;
+    font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+
+    >abbr{
+      display:none;
+    }
+  }
+
+  div.input {
+    margin-bottom: 10px;
+
+    >textarea{
+      height: $height;
+      resize: none;
+    }
+
+    & input.string, >textarea, input.password{
+      width: $length;
+      display:block;
+      margin-top: 4px;
+      padding: 10px 0px 10px 25px;
+      border: 1px solid rgb(178, 178, 178);
+      -webkit-appearance: textfield;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing : content-box;
+      box-sizing : content-box;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+      -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+      box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+      -webkit-transition: all 0.2s linear;
+      -moz-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+    }
+  }
+
+  input.radio_buttons, input.check_boxes {
+    margin-right: 5px;
+  }
+
+  .alert-error {
+    color: #D00;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .hint, .error {
+    color:red;
+    text-align:left;
+    font-size: 12px;
+    font-style: italic;
+    font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+    display: block;
+    padding-left: 5px;
+  }
+
+  .hint {
+    color: #555;
+    font-style: italic;
+  }
+
+  input.btn:hover {
+    background: rgb(74, 179, 198);
+  }
+
+  input.btn:active,
+  input.btn:focus{
+
+    background: rgb(40, 137, 154);
+    position: relative;
+    top: 1px;
+    border: 1px solid rgb(12, 76, 87);
+    -webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+  }
+
+  input.btn {
+
+    cursor: pointer;
+    margin-top: 15px;
+    background: rgb(61, 157, 179);
+    padding: 10px;
+    font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+    color: #fff;
+    min-width: 80px;
+    font-size: 15px;
+    border: 1px solid rgb(28, 108, 122);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+    0px 0px 0px 3px rgb(254, 254, 254),
+    0px 5px 3px 3px rgb(210, 210, 210);
+    -moz-box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+    0px 0px 0px 3px rgb(254, 254, 254),
+    0px 5px 3px 3px rgb(210, 210, 210);
+    box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+    0px 0px 0px 3px rgb(254, 254, 254),
+    0px 5px 3px 3px rgb(210, 210, 210);
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+
+  [data-icon]:after {
+    content: attr(data-icon);
+    font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+    color: rgb(106, 159, 171);
+    position: absolute;
+    left: 10px;
+    top: 35px;
+    width: 30px;
+  }
+}
+
+/*
+.simple_form:not(.signup):not(.login):not(.default) {
+  $indent: 200px;
+  $length: 350px;
+  $height: 100px;
+  width:650px;
+  padding-bottom: 50px;
+  #recaptcha_widget_div {
+    margin-left: $indent;
+  }
+  #captcha_errors {
+    label, input {
+      display:none;
+    }
+  }
+  label {
+    float: left;
+    width: $indent - 20px;
+    text-align: right;
+    margin: 2px 10px;
+    &.radio, &.checkbox {
+      float: none;
+      margin: 0;
+      width: auto;
+      text-align: left;
+    }
+    &.checkbox {
+      display: block;
+      margin-left: $indent;
+    }
+    &.radio {
+      display: block;
+      margin-left: $indent;
+      margin-right: 10px;
+    }
+    >abbr{
+      border-bottom:none;
+    }
+  }
+  div.input {
+    margin-bottom: 10px;
+    >textarea{
+      resize: none;
+      padding: 0px;
+      margin: 0px;
+      width: $length;
+      height: $height;
+    }
+    & input.string{
+      width: $length;
+    }
+  }
+  input.radio_buttons, input.check_boxes {
+    margin-right: 5px;
+  }
+  .btn {
+    margin-left: $indent;
+  }
+  .alert-error {
+    color: #D00;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .hint, .error {
+    clear: left;
+    margin-left: $indent + 5px;
+    font-size: 12px;
+    color: #D00;
+    display: block;
+  }
+  .hint {
+    color: #555;
+    font-style: italic;
+  }
+}
+*/

@@ -1,0 +1,55 @@
+var current_errors = <%=  raw @security_users_role.errors.to_json %>;
+var errors_counter = 0;
+
+var error_user_password = $('#error_role_role');
+var error_user_password_confirmation = $('#error_role_description');
+
+var role_container = $('.b-content-container-content #security_users_role_role');
+var description_container = $('.b-content-container-content #security_users_role_description');
+
+// Clearing previous errors messages and hiding the containers
+$(error_user_password).html('').hide();
+$(error_user_password_confirmation).html('').hide();
+
+// Checking for current errors
+for(var error in current_errors) {
+
+    switch(error) {
+
+        case 'role': {
+
+            if($(error_user_password).length == 0) {
+                $('<span class="error" id="error_role_role">'+current_errors[error]+'</span>')
+                        .insertAfter(role_container);
+            }else {
+                $(error_user_password).html(current_errors[error][0]);
+                $(error_user_password).show();
+            }
+
+            break;
+        }
+        case 'description': {
+
+            if($(error_user_password_confirmation).length == 0) {
+                $('<span class="error" id="error_role_description">'+current_errors[error]+'</span>')
+                        .insertAfter(description_container);
+            }else {
+                $(error_user_password_confirmation).html(current_errors[error][0]);
+                $(error_user_password_confirmation).show();
+            }
+
+            break;
+        }
+    }
+
+    errors_counter++;
+}
+
+if(errors_counter == 0) {
+   $('.b-content-container-content').html("<%=
+   if @security_users_role.errors.empty?
+      j render template:'security_users_roles/show.html.erb', collection:@security_users_role
+   end
+  %>");
+}
+

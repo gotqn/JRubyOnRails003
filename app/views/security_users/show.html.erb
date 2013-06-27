@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @security_user.email %>
+</p>
+
+<p>
+  <b>Password digest:</b>
+  <%= @security_user.password_digest %>
+</p>
+
+<p>
+  <b>Registration date:</b>
+  <%= @security_user.registration_date %>
+</p>
+
+<p>
+  <b>Last log in date:</b>
+  <%= @security_user.last_log_in_date %>
+</p>
+
+<p>
+  <b>Is active:</b>
+  <%= @security_user.is_active %>
+</p>
+
+<p>
+  <b>Activation code:</b>
+  <%= @security_user.activation_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_security_user_path(@security_user) %> |
+<%= link_to 'Back', security_users_path %>

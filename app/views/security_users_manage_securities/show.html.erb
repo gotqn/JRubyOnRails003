@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Security user:</b>
+  <%= @security_users_manage_security.security_user %>
+</p>
+
+<p>
+  <b>Security users role:</b>
+  <%= @security_users_manage_security.security_users_role %>
+</p>
+
+
+<%= link_to 'Edit', edit_security_users_manage_security_path(@security_users_manage_security) %> |
+<%= link_to 'Back', security_users_manage_securities_path %>

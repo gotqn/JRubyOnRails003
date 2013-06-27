@@ -1,0 +1,9 @@
+<h1 class="sub-title"><%= @header %></h1>
+<%= @content %>
+<% content_for :footer do %>
+    <%= @footer %>
+    <%=h link_to 'Back to Gallery', webinars_path, remote:true %>
+<% end %>
+
+
+

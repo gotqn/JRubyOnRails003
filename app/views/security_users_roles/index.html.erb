@@ -1,0 +1,62 @@
+<h1 class='sub-title'>Security Users Roles</h1>
+
+<%= link_to 'Add New Role',  new_security_users_role_path, remote:true, class:'default-btn' %>
+<br />
+<br />
+
+<div id='security-users-roles-accordion'>
+
+  <% @security_users_roles.each do |security_users_role| %>
+
+     <h3 id='security-users-role-header-<%= security_users_role.id	%>'><%= security_users_role.role %></h3>
+
+     <div>
+
+       <table>
+         <tr>
+           <td>
+               <%= link_to 'Show',  security_users_role, remote:true %>
+               <%= link_to 'Edit', edit_security_users_role_path(security_users_role), remote:true %>
+               <%= link_to 'Destroy', security_users_role, method: :delete, data: { confirm: 'Are you sure?' }, remote:true %>
+           </td>
+         </tr>
+         <tr><td>Description</td></tr>
+         <tr><td><%= security_users_role.description %></td></tr>
+       </table>
+
+        <div class='security-users-accordion'>
+           <h3> Users in this role</h3>
+
+           <div>
+             da   <br/>
+             da
+             da  <br/>
+             da  <br/>
+             da <br/>
+             da <br/>
+             da   <br/>
+             da
+             da  <br/>
+             da  <br/>
+             da <br/>
+             da <br/>da   <br/>
+             da
+             da  <br/>
+             da  <br/>
+             da <br/>
+             da <br/>
+             da
+
+           </div>
+
+        </div>
+
+
+     </div>
+
+  <% end %>
+
+</div>
+
+
+

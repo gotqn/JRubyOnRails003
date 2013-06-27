@@ -1,0 +1,19 @@
+<h1 class='sub-title'>Change Password</h1>
+
+<%= simple_form_for @security_user, url: password_reset_path(params[:id]), remote: true do |f|%>
+
+    <%= f.input :password, label: 'Your password',
+                label_html: {  'data-icon' => 'p' },
+                input_html: { placeholder:'eg. X8df!90EO'} %>
+    <%= f.input :password_confirmation, label: 'Please confirm your password',
+                label_html: {  'data-icon' => 'p' },
+                input_html: { placeholder:'eg. X8df!90EO'} %>
+
+    <%= f.button :submit, 'Change Password'%>
+
+<% end %>
+
+<% content_for :footer do %>
+    <%= link_to 'Back to Gallery', webinars_path, remote:true %>
+<% end %>
+

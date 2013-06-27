@@ -1,0 +1,108 @@
+
+var current_errors = <%=  raw @security_user.errors.to_json %>;
+var errors_counter = 0;
+
+var error_captcha = $('#error_captcha');
+var error_user_email =  $('#error_user_email');
+var error_user_password = $('#error_user_password');
+var error_user_password_confirmation = $('#error_user_password_confirmation');
+
+
+// Clearing previous errors messages and hiding the containers
+$(error_captcha).html('').hide();
+$(error_user_email).html('').hide();
+$(error_user_password).html('').hide();
+$(error_user_password_confirmation).html('').hide();
+
+// Checking for current errors
+for(var error in current_errors) {
+
+    switch(error) {
+
+        case 'captcha': {
+
+            if($(error_captcha).length == 0) {
+                $('<span class="error" id="error_captcha">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_security_user #recaptcha_widget_div');
+            }else {
+               $(error_captcha).html(current_errors[error][0]);
+               $(error_captcha).show();
+            }
+
+            break;
+        }
+        case 'email': {
+
+            if($(error_user_email).length == 0) {
+                $('<span class="error" id="error_user_email">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_security_user #security_user_email');
+            }else {
+                $(error_user_email).html(current_errors[error][0]);
+                $(error_user_email).show();
+            }
+
+            break;
+        }
+        case 'password': {
+
+            if($(error_user_password).length == 0) {
+                $('<span class="error" id="error_user_password">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_security_user #security_user_password');
+            }else {
+                $(error_user_password).html(current_errors[error][0]);
+                $(error_user_password).show();
+            }
+
+            break;
+        }
+        case 'password_confirmation': {
+
+            if($(error_user_password_confirmation).length == 0) {
+                $('<span class="error" id="error_user_password_confirmation">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_security_user #security_user_password_confirmation');
+            }else {
+                $(error_user_password_confirmation).html(current_errors[error][0]);
+                $(error_user_password_confirmation).show();
+            }
+
+            break;
+        }
+
+    }
+
+    errors_counter++;
+}
+
+// Clearing fields and reloading ReCaptcha if errors occurred
+if(errors_counter > 0) {
+
+    if(typeof Recaptcha != 'undefined'){
+        Recaptcha.reload();
+    }
+
+    $('#security_user_password').val('');
+    $('#security_user_password_confirmation').val('');
+
+// Rendering instruction message and clearing the form
+} else {
+
+    var content_html = [];
+    var footer_html = [];
+
+    content_html.push('<h1 class="sub-title">Registration Successful</h1>');
+    content_html.push('Check you email to activate your account.');
+
+    footer_html.push('<%=j link_to 'Back to Gallery', webinars_path, remote:true %>');
+
+    $('.b-content-container-content').html(content_html.join(''));
+    $('.b-content-container-footer').html(footer_html.join(''));
+
+    if(typeof Recaptcha != 'undefined'){
+        Recaptcha.reload();
+    }
+
+    $('#security_user_email').val('');
+    $('#security_user_password').val('');
+    $('#security_user_password_confirmation').val('');
+}
+

@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Registration date</th>
+    <th>Last log in date</th>
+    <th>Is active</th>
+    <th>Role</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @security_users.each do |security_user| %>
+  <tr>
+    <td><%= security_user.email %></td>
+    <td><%= security_user.registration_date %></td>
+    <td><%= security_user.last_log_in_date %></td>
+    <td><%= security_user.is_active %></td>
+    <td><%= link_to 'Show', security_user %></td>
+    <td><%= link_to 'Edit', edit_security_user_path(security_user) %></td>
+    <td><%= link_to 'Destroy', security_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+

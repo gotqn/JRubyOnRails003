@@ -1,0 +1,67 @@
+
+var current_errors = <%=  raw @security_user.errors.to_json %>;
+var errors_counter = 0;
+
+var error_user_password = $('#error_user_password');
+var error_user_password_confirmation = $('#error_user_password_confirmation');
+
+
+// Clearing previous errors messages and hiding the containers
+$(error_user_password).html('').hide();
+$(error_user_password_confirmation).html('').hide();
+
+// Checking for current errors
+for(var error in current_errors) {
+
+    switch(error) {
+
+        case 'password': {
+
+            if($(error_user_password).length == 0) {
+                $('<span class="error" id="error_user_password">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_user_password');
+            }else {
+                $(error_user_password).html(current_errors[error][0]);
+                $(error_user_password).show();
+            }
+
+            break;
+        }
+        case 'password_confirmation': {
+
+            if($(error_user_password_confirmation).length == 0) {
+                $('<span class="error" id="error_user_password_confirmation">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_user_password_confirmation');
+            }else {
+                $(error_user_password_confirmation).html(current_errors[error][0]);
+                $(error_user_password_confirmation).show();
+            }
+
+            break;
+        }
+
+    }
+
+    errors_counter++;
+}
+
+// Clearing fields and reloading ReCaptcha if errors occurred
+if(errors_counter > 0) {
+
+    $('.b-content-container-content #security_user_password').val('');
+    $('.b-content-container-content #security_user_password_confirmation').val('');
+
+// Rendering instruction message and clearing the form
+} else {
+
+    var content_html = [];
+
+    content_html.push('<h1 class="sub-title">Change Password</h1>');
+    content_html.push('Your password have been changed.');
+
+    $('.b-content-container-content').html(content_html.join(''));
+
+    $('.b-content-container-content #security_user_password').val('');
+    $('.b-content-container-content #security_user_password_confirmation').val('');
+}
+

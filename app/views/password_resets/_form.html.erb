@@ -1,0 +1,9 @@
+<%= simple_form_for :password_resets, url: password_resets_path, remote:true  do |f| %>
+
+    <%= f.input :email, label: 'Your email',
+                input_html: { placeholder:'mysupermail@mail.com'},
+                label_html: { 'data-icon' => 'e' }%>
+    <%= f.button :submit, 'Reset Password' %>
+
+<% end %>
+

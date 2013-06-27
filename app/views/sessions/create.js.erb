@@ -1,0 +1,42 @@
+var current_status = '<%= @status %>';
+
+switch (current_status) {
+
+    case 'success': {
+        window.location.replace('<%= webinars_url %>');
+        break;
+    }
+
+    case 'not_active': {
+        $('.b-session-notice').html('Account not activated!');
+        $('#session_email').val('');
+        $('#session_password').val('');
+
+        var content_html = [];
+        var footer_html = [];
+
+        content_html.push('<h1 class="sub-title">Account not activated!</h1>');
+        content_html.push('Your account is not activated. You can find an activation link in your mailbox.');
+
+        footer_html.push('<%=j link_to 'Back to Gallery', webinars_path, remote:true %>');
+
+        $('.b-content-container-content').html(content_html.join(''));
+        $('.b-content-container-footer').html(footer_html.join(''));
+
+        break;
+    }
+
+    case 'failed': {
+        $('.b-session-notice').html('Email or password is invalid!');
+        $('#session_email').val('');
+        $('#session_password').val('');
+        break;
+    }
+
+    default:{
+        $('.b-session-notice').html('Email or password is invalid!');
+        $('#session_email').val('');
+        $('#session_password').val('');
+        break;
+    }
+}

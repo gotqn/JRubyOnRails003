@@ -1,0 +1,13 @@
+var content_html = [];
+var footer_html = [];
+
+content_html.push('<h1 class="sub-title">Edit Security Role</h1>');
+content_html.push('<%=j render 'form' %>');
+
+footer_html.push('<%= j link_to 'Back to Security Roles', security_users_roles_path, remote:true %>');
+
+$('.b-content-container-content').html(content_html.join(''));
+$('.b-content-container-footer').html(footer_html.join(''));
+
+$('.b-content-container-content form').enableClientSideValidations();
+

@@ -1,0 +1,28 @@
+<%= simple_form_for @security_user, validate: true, html: { class: "signup"}, remote:true do |f| %>
+
+    <h1> Sign up </h1>
+
+    <%= f.input :email, label: 'Your email',
+                label_html: { class: 'youmail', 'data-icon' => 'e'},
+                input_html: { placeholder:'mysupermail@mail.com'} %>
+    <%= f.input :password, label: 'Your password',
+                label_html: { class: 'youpasswd', 'data-icon' => 'p' },
+                input_html: { placeholder:'eg. X8df!90EO'} %>
+    <%= f.input :password_confirmation, label: 'Please confirm your password',
+                label_html: { class: 'youpasswd', 'data-icon' => 'p' },
+                input_html: { placeholder:'eg. X8df!90EO'} %>
+
+    <%= recaptcha_tags :display => { theme: 'white' } %>
+    <%= f.input :captcha, label: 'hidden', wrapper_html: { id: 'captcha_errors'} %>
+
+    <p class="signin button">
+      <input name="commit" type="submit" value="Sign up">
+    </p>
+
+    <p class="b-change-link">
+      Already a member ?
+      <a href="#tologin" class="to_register">Go and log in</a>
+    </p>
+
+<% end %>
+

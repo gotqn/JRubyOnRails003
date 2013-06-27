@@ -1,0 +1,25 @@
+<h1>Listing security_users_manage_securities</h1>
+
+<table>
+  <tr>
+    <th>Security user</th>
+    <th>Security users role</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @security_users_manage_securities.each do |security_users_manage_security| %>
+  <tr>
+    <td><%= security_users_manage_security.security_user %></td>
+    <td><%= security_users_manage_security.security_users_role %></td>
+    <td><%= link_to 'Show', security_users_manage_security %></td>
+    <td><%= link_to 'Edit', edit_security_users_manage_security_path(security_users_manage_security) %></td>
+    <td><%= link_to 'Destroy', security_users_manage_security, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Security users manage security', new_security_users_manage_security_path %>

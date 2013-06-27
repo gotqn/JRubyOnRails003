@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Beta</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<!-- Section starts - application container -->
+<div class="b-application-container">
+
+  <!-- Section starts - top bar container -->
+  <div class="b-top-bar-container clearfix">
+    <a href="http://new.tu-varna.bg/index.php/bg/"><strong>&laquo; TU Varna: Official Website</strong></a>
+    <span class="right"><a href="http://tympanus.net/codrops/?p=14806"><strong>Contact us</strong></a></span>
+  </div>
+  <!-- Section ends - top bar container -->
+
+  <header class="clearfix">
+    <h1>Technical University of Varna -  Bachelor Diploma Portal
+      <span>Hundreds diploma examples and self-learning webinars gallery</span>
+    </h1>
+  </header>
+
+
+  <div class="b-wrapper-container">
+
+    <div class="b-navigation-container">
+
+      <% # when the user is log in display navigation  %>
+      <% if current_user %>
+
+          <nav class="b-menu-container">
+            <div class="e-trigger"><span class="e-icon e-icon-menu"></span><a class="e-label">Account</a></div>
+            <ul>
+              <li><a class="e-icon e-icon-user" href="#">Jason Quinn</a></li>
+              <li><a class="e-icon e-icon-camera" href="#">My Profile</a></li>
+              <li><a class="e-icon e-icon-heart" href="#">Settings</a></li>
+              <li><%= link_to 'Logout', session_path('current'), method:'delete', class: 'e-icon e-icon-switch' %></li>
+            </ul>
+          </nav>
+          <nav class="b-menu-container">
+            <div class="e-trigger"><span class="e-icon e-icon-menu"></span><a class="e-label">Webinars</a></div>
+            <ul>
+              <li><%=  link_to 'Gallery', webinars_path, remote:true, class:'e-icon e-icon-user'%></li>
+              <li><%=  link_to 'Upload', new_webinar_path, remote:true, class:'e-icon e-icon-camera'%></li>
+            </ul>
+          </nav>
+          <nav class="b-menu-container">
+            <div class="e-trigger"><span class="e-icon e-icon-menu"></span><a class="e-label">Users</a></div>
+            <ul>
+              <li><a class="e-icon e-icon-user" href="#">List</a></li>
+              <li><a class="e-icon e-icon-camera" href="#">Create</a></li>
+              <li><a class="e-icon e-icon-heart" href="#">Security groups</a></li>
+            </ul>
+          </nav>
+          <nav class="b-menu-container">
+            <div class="e-trigger"><span class="e-icon e-icon-menu"></span><a class="e-label">Security</a></div>
+            <ul>
+              <li><%= link_to 'Security Roles', security_users_roles_path, remote:true, class:'e-icon e-icon-camera' %></li>
+              <li><%= link_to 'New Security Row', new_security_users_role_path, remote:true, class:'e-icon e-icon-camera' %></li>
+            </ul>
+          </nav>
+
+      <% # when the user is not log in display 'log in' and 'sign in' forms  %>
+      <% else %>
+
+          <div id="b-log-or-sign-in-container" >
+            <a class="hiddenanchor" id="toregister"></a>
+            <a class="hiddenanchor" id="tologin"></a>
+            <div id="b-log-or-sign-in-wrapper">
+              <div id="b-login-wrapper" class="animate form">
+                <%= render template: 'sessions/create'%>
+              </div>
+              <div id="b-register-wrapper" class="animate form">
+                <% @security_user = SecurityUser.new %>
+                <%= render partial: 'security_users/sign_in', :locals => {:security_user => @security_user} %>
+              </div>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+
+    <div class="b-content-container">
+      <div class="b-content-container-content"><%= yield %></div>
+      <div class="b-content-container-footer"><%= yield :footer %></div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+  </div>
+
+  <footer class="clearfix">
+    <%= yield :application_footer %>
+  </footer>
+
+</div>
+<!-- Section ends - application container -->
+
+</body>
+</html>
+
+
+
+
+<!--
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple YouTube Menu Effect</title>
+  <meta name="description" content="A tutorial on how to recreate the effect of YouTube's little left side menu. The idea is to slide a little menu icon to the right side while revealing some menu item list beneath. " />
+  <meta name="keywords" content="Add keywords" />
+  <meta name="author" content="_yourName_ for Codrops" />
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/default.css" />
+  <link rel="stylesheet" type="text/css" href="css/component.css" />
+  <script src="js/modernizr.custom.js"></script>
+</head>
+<body>
+
+<script src="js/ytmenu.js"></script>
+</body>
+</html>
+
+
+-->
