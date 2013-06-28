@@ -81,8 +81,9 @@ class SecurityUser < ActiveRecord::Base
   end
 
   def set_default_relations
-    self.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_role('Student'))
-    self.build_security_users_detail
+    security_users_detail = SecurityUsersDetail.new
+    security_users_detail.security_user_id = self.id
+    security_users_detail.save!(validate: false)
   end
 
   def is_profile_completed
@@ -91,7 +92,7 @@ class SecurityUser < ActiveRecord::Base
       is_completed = false
     else
       self.security_users_detail.attributes.each do |field_name, field_value|
-        if field_value.blank? || field_value.empty?
+        if field_value.nil? || field_value.blank?
           is_completed = false
           break
         end

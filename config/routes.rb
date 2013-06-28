@@ -1,23 +1,14 @@
 Beta::Application.routes.draw do
 
   resources :security_users_manage_securities
-
-
-  #get "security_users_manage_security/index"
-
   resources :security_users_roles
-
-  resources :security_users_details
+  resources :security_users_details, only: [:show, :edit, :update ]
   resources :security_users
   resources :webinars
   resources :sessions
-
   resources :password_resets
-  #resources :email_confirmation
 
   match '/security_users/:security_user_id/email_confirmation/:activation_code' => 'email_confirmation#update'
-  #get 'email_confirmation/new'
- # as: 'email_confirmation'    #      via:put,
 
   root to: 'webinars#index', as: 'webinars'
 

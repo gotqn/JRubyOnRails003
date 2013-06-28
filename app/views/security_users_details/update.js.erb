@@ -1,0 +1,164 @@
+var current_errors = <%=  raw @security_users_detail.errors.to_json %>;
+var errors_counter = 0;
+
+var error_user_faculty_number = $('#error_user_faculty_number');
+var error_user_first_name = $('#error_user_first_name');
+var error_user_last_name = $('#error_user_last_name');
+var error_user_address = $('#error_user_address');
+var error_user_city = $('#error_user_city');
+var error_user_country = $('#error_user_country');
+var error_user_egn = $('#error_user_egn');
+var error_user_gender = $('#error_user_gender');
+var error_user_gsm = $('#error_user_gsm');
+var error_user_skype = $('#error_user_skype');
+
+// Clearing previous errors messages and hiding the containers
+$(error_user_faculty_number).html('').hide();
+$(error_user_first_name).html('').hide();
+$(error_user_last_name).html('').hide();
+$(error_user_address).html('').hide();
+$(error_user_city).html('').hide();
+$(error_user_country).html('').hide();
+$(error_user_egn).html('').hide();
+$(error_user_gender).html('').hide();
+$(error_user_gsm).html('').hide();
+$(error_user_skype).html('').hide();
+
+// Checking for current errors
+for(var error in current_errors) {
+
+    switch(error) {
+
+        case 'faculty_number': {
+
+            if($(error_user_faculty_number).length == 0) {
+                $('<span class="error" id="error_user_faculty_number">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_faculty_number');
+            }else {
+                $(error_user_faculty_number).html(current_errors[error][0]);
+                $(error_user_faculty_number).show();
+            }
+
+            break;
+        }
+        case 'first_name': {
+
+            if($(error_user_first_name).length == 0) {
+                $('<span class="error" id="error_user_first_name">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_first_name');
+            }else {
+                $(error_user_first_name).html(current_errors[error][0]);
+                $(error_user_first_name).show();
+            }
+
+            break;
+        }
+        case 'last_name': {
+
+            if($(error_user_last_name).length == 0) {
+                $('<span class="error" id="error_user_last_name">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_last_name');
+            }else {
+                $(error_user_last_name).html(current_errors[error][0]);
+                $(error_user_last_name).show();
+            }
+
+            break;
+        }
+        case 'address': {
+
+            if($(error_user_address).length == 0) {
+                $('<span class="error" id="error_user_address">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_address');
+            }else {
+                $(error_user_address).html(current_errors[error][0]);
+                $(error_user_address).show();
+            }
+
+            break;
+        }
+        case 'city': {
+
+            if($(error_user_city).length == 0) {
+                $('<span class="error" id="error_user_city">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_city');
+            }else {
+                $(error_user_city).html(current_errors[error][0]);
+                $(error_user_city).show();
+            }
+
+            break;
+        }
+        case 'country': {
+
+            if($(error_user_country).length == 0) {
+                $('<span class="error" id="error_user_country">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_country');
+            }else {
+                $(error_user_country).html(current_errors[error][0]);
+                $(error_user_country).show();
+            }
+
+            break;
+        }
+        case 'egn': {
+
+            if($(error_user_egn).length == 0) {
+                $('<span class="error" id="error_user_egn">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_egn');
+            }else {
+                $(error_user_egn).html(current_errors[error][0]);
+                $(error_user_egn).show();
+            }
+
+            break;
+        }
+        case 'gender': {
+
+            if($(error_user_gender).length == 0) {
+                $('<span class="error" id="error_user_gender">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_gender');
+            }else {
+                $(error_user_gender).html(current_errors[error][0]);
+                $(error_user_gender).show();
+            }
+
+            break;
+        }
+        case 'gsm': {
+
+            if($(error_user_gsm).length == 0) {
+                $('<span class="error" id="error_user_gsm">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_gsm');
+            }else {
+                $(error_user_gsm).html(current_errors[error][0]);
+                $(error_user_gsm).show();
+            }
+
+            break;
+        }
+        case 'skype': {
+
+            if($(error_user_skype).length == 0) {
+                $('<span class="error" id="error_user_skype">'+current_errors[error]+'</span>')
+                        .insertAfter('.b-content-container-content #security_users_detail_skype');
+            }else {
+                $(error_user_skype).html(current_errors[error][0]);
+                $(error_user_skype).show();
+            }
+
+            break;
+        }
+    }
+
+    errors_counter++;
+}
+
+if(errors_counter == 0) {
+    $('.b-content-container-content').html("<%=
+   if @security_users_detail.errors.empty?
+      j render template:'security_users_details/show.html.erb', collection:@security_users_detail
+   end
+  %>");
+}
+

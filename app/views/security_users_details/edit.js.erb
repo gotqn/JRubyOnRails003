@@ -1,17 +1,13 @@
 var content_html = [];
 var footer_html = [];
 
-content_html.push('<h1 class="sub-title"><%= @webinar.name  %></h1>');
-content_html.push('<%=j render template:'webinars/show.html.erb', collection:@webinar %>');
+content_html.push('<h1 class="sub-title"><%= j @current_title_text %></h1>');
+content_html.push('<%=j render 'form' %>');
 
 footer_html.push('<%=j link_to 'Back to Gallery', webinars_path, remote:true %>');
 
 $('.b-content-container-content').html(content_html.join(''));
 $('.b-content-container-footer').html(footer_html.join(''));
 
-
-
-$(document).ready(function() {
-    $("video").mediaelementplayer();
-});
+$('.b-content-container-content form').enableClientSideValidations();
 

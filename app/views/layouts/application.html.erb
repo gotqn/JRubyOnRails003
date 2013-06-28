@@ -37,7 +37,7 @@
             <div class="e-trigger"><span class="e-icon e-icon-menu"></span><a class="e-label">Account</a></div>
             <ul>
               <li><a class="e-icon e-icon-user" href="#">Jason Quinn</a></li>
-              <li><a class="e-icon e-icon-camera" href="#">My Profile</a></li>
+              <li><%= link_to 'My Profile', current_user.security_users_detail, remote:true, class: 'e-icon e-icon-camera' %></li>
               <li><a class="e-icon e-icon-heart" href="#">Settings</a></li>
               <li><%= link_to 'Logout', session_path('current'), method:'delete', class: 'e-icon e-icon-switch' %></li>
             </ul>

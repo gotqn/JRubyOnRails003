@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_filter :is_profile_complete
+
   def new
   end
 

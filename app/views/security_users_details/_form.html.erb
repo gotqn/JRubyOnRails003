@@ -1,20 +1,40 @@
-<%= simple_form_for(@security_users_detail) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @security_users_detail, validate: true, remote: true do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :faculty_number %>
-    <%= f.input :egn %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :gender %>
-    <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :country %>
-    <%= f.input :gsm %>
-    <%= f.input :skype %>
-  </div>
+   <fieldset>
+     <legend>Personal Details</legend>
+   <%= f.input :faculty_number, label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'086057'} %>
+   <%= f.input :first_name, label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'Georgi'} %>
+   <%= f.input :last_name, label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'Kyuchukov'} %>
+   </fieldset>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+   <fieldset>
+     <legend>Additional Information</legend>
+   <%= f.input :egn, label: 'EGN', label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'8910031182'} %>
+   <%= f.input :gender, collection: SecurityUsersDetail::GENDER_TYPES,
+               as: :radio_buttons  %>
+   </fieldset>
+
+   <fieldset>
+     <legend>Location Details</legend>
+   <%= f.input :address, label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'"Mladost 131", entrance 3, floor 2, apartment 55'} %>
+   <%= f.input :city, label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'Varna'} %>
+   <%= f.input :country, label_html: { 'data-icon' => 'e'} %>
+   </fieldset>
+
+   <fieldset>
+     <legend>Contact Details</legend>
+   <%= f.input :gsm, label: 'GSM', label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'0888098011'} %>
+   <%= f.input :skype, label_html: { 'data-icon' => 'e'},
+               input_html: { placeholder:'got_qn'} %>
+   </fieldset>
+
+   <%= f.button :submit, @submit_button_text %>
+
 <% end %>

@@ -1,3 +1,6 @@
+$length: 300px;
+$height: 100px;
+
 body, html { font-size: 100%; padding: 0; margin: 0; min-height:100%;}
 
 *,
@@ -340,6 +343,7 @@ a.default-btn {
   -ms-transition: all 0.4s  linear;
   transition: all 0.4s  linear;
   text-transform: capitalize;
+  text-align: center;
 }
 
 a.default-btn:hover {
@@ -361,5 +365,85 @@ a.default-btn:active {
 
 .capitalize-text:first-letter {
   text-transform: uppercase;
+}
+
+div.fieldset-display {
+
+  margin-bottom:50px;
+
+  fieldset {
+
+    display:block;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    padding: 10px 0px 10px 25px;
+    border: 1px solid rgb(178, 178, 178);
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing : content-box;
+    box-sizing : content-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+
+    div {
+      padding-bottom: 5px;
+    }
+
+    label {
+      font-size: 14px;
+      color: rgb(64, 92, 96);
+      position: relative;
+      display: inline-block;
+      font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+    }
+
+    legend {
+      font-size: 16px;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-weight: bold;
+      font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+    }
+
+    span {
+
+      font-size: 14px;
+      width: $length;
+      display:block;
+      margin-top: 4px;
+      padding: 3px 0px 3px 25px;
+      border: 1px solid rgb(178, 178, 178);
+      -webkit-appearance: textfield;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing : content-box;
+      box-sizing : content-box;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+      -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+      box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+      -webkit-transition: all 0.2s linear;
+      -moz-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+      background: #E2E6EF;
+    }
+
+    [data-icon]:after {
+      content: attr(data-icon);
+      font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+      color: rgb(106, 159, 171);
+      position: absolute;
+      left: 10px;
+      top: 25px;
+      width: 30px;
+    }
+  }
 }
 

@@ -62,16 +62,6 @@ ActiveRecord::Schema.define(:version => 20130627132503) do
     t.timestamp "updated_at",  :null => false
   end
 
-  create_table "security_users_roles_to_users", :force => true do |t|
-    t.integer   "security_user_id"
-    t.integer   "security_users_role_id"
-    t.timestamp "created_at",             :null => false
-    t.timestamp "updated_at",             :null => false
-  end
-
-  add_index "security_users_roles_to_users", ["security_user_id"], :name => "index_security_users_roles_to_users_on_security_user_id"
-  add_index "security_users_roles_to_users", ["security_users_role_id"], :name => "index_security_users_roles_to_users_on_security_users_role_id"
-
   create_table "webinars", :force => true do |t|
     t.string    "name"
     t.string    "access_type"

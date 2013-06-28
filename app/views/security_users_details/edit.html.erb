@@ -1,6 +1,7 @@
-<h1>Editing security_users_detail</h1>
+<h1 class='sub-title'><%= @current_title_text %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @security_users_detail %> |
-<%= link_to 'Back', security_users_details_path %>
+<% content_for :footer do %>
+    <%= link_to 'Back to Gallery', webinars_path, remote:true %>
+<% end %>

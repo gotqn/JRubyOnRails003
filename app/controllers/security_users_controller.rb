@@ -47,10 +47,7 @@ class SecurityUsersController < ApplicationController
     @security_user.activation_code = SecureRandom.hex(32)
     @security_user.registration_date = DateTime.now
     @security_user.last_log_in_date = DateTime.now
-
     @security_user.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_role('Student'))
-    #@security_user.security_users_detail.build(security_users_detail: SecurityUsersDetail.new)
-    #@security_user.build_security_users_detail(security_users_detail: SecurityUsersDetail.new)
 
     # Internal variables that can be overwritten by authenticated users
     @security_user.is_active ||= 0

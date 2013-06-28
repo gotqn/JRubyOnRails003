@@ -1,55 +1,64 @@
-<p id="notice"><%= notice %></p>
+<h1 class='sub-title'><%= @current_title_text %></h1>
+<div class='fieldset-display'>
+    <fieldset>
+      <legend>Personal Details</legend>
+      <div>
+        <label data-icon='e'>Faculty number:</label>
+        <span><%= @security_users_detail.faculty_number %></span>
+      </div>
+      <div>
+        <label data-icon='e'>First name:</label>
+        <span><%= @security_users_detail.first_name %></span>
+      </div>
+      <div>
+        <label data-icon='e'>Last name:</label>
+        <span><%= @security_users_detail.last_name %></span>
+      </div>
+    </fieldset>
 
-<p>
-  <b>Faculty number:</b>
-  <%= @security_users_detail.faculty_number %>
-</p>
+    <fieldset>
+      <legend>Additional Information</legend>
+      <div>
+        <label data-icon='e'>Egn:</label>
+        <span><%= @security_users_detail.egn %></span>
+      </div>
+      <div>
+        <label data-icon='e'>Gender:</label>
+        <span><%= @security_users_detail.gender %></span>
+      </div>
+    </fieldset>
 
-<p>
-  <b>Egn:</b>
-  <%= @security_users_detail.egn %>
-</p>
+    <fieldset>
+      <legend>Location Details</legend>
+      <div>
+        <label data-icon='e'>Address:</label>
+        <span><%= @security_users_detail.address %></span>
+      </div>
+      <div>
+        <label data-icon='e'>City:</label>
+        <span><%= @security_users_detail.city %></span>
+      </div>
+      <div>
+        <label data-icon='e'>Country:</label>
+        <span><%= @security_users_detail.country %></span>
+      </div>
+    </fieldset>
 
-<p>
-  <b>First name:</b>
-  <%= @security_users_detail.first_name %>
-</p>
+    <fieldset>
+      <legend>Contact Details</legend>
+      <div>
+        <label data-icon='e'>Gsm:</label>
+        <span><%= @security_users_detail.gsm %></span>
+      </div>
+      <div>
+        <label data-icon='e'>Skype:</label>
+        <span><%= @security_users_detail.skype %></span>
+      </div>
+    </fieldset>
+  <%= link_to 'Edit', edit_security_users_detail_path(@security_users_detail), class:'default-btn', remote:true %>
+</div>
 
-<p>
-  <b>Last name:</b>
-  <%= @security_users_detail.last_name %>
-</p>
+<% content_for :footer do %>
+    <%= link_to 'Back to Gallery', webinars_path, remote:true %>
+<% end %>
 
-<p>
-  <b>Gender:</b>
-  <%= @security_users_detail.gender %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @security_users_detail.address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @security_users_detail.city %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @security_users_detail.country %>
-</p>
-
-<p>
-  <b>Gsm:</b>
-  <%= @security_users_detail.gsm %>
-</p>
-
-<p>
-  <b>Skype:</b>
-  <%= @security_users_detail.skype %>
-</p>
-
-
-<%= link_to 'Edit', edit_security_users_detail_path(@security_users_detail) %> |
-<%= link_to 'Back', security_users_details_path %>
