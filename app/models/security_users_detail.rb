@@ -13,7 +13,8 @@ class SecurityUsersDetail < ActiveRecord::Base
                   :gender,
                   :gsm,
                   :last_name,
-                  :skype
+                  :skype,
+                  :security_user_id
 
   # Relationships
   belongs_to :security_user
