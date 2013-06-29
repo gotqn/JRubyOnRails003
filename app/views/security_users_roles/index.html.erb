@@ -11,13 +11,17 @@
      <h3 id='security-users-role-header-<%= security_users_role.id	%>'><%= security_users_role.role %></h3>
 
      <div>
-
+       <% security_users = security_users_role.get_security_users_by_role  %>
        <table>
          <tr>
            <td>
-               <%= link_to 'Show',  security_users_role, remote:true %>
-               <%= link_to 'Edit', edit_security_users_role_path(security_users_role), remote:true %>
-               <%= link_to 'Destroy', security_users_role, method: :delete, data: { confirm: 'Are you sure?' }, remote:true %>
+            <%= link_to 'Show',  security_users_role, remote:true %>
+            <%= link_to 'Edit', edit_security_users_role_path(security_users_role), remote:true %>
+            <% if  security_users.empty? %>
+             <%= link_to 'Destroy', security_users_role, method: :delete, data: { confirm: 'Are you sure?' }, remote:true %>
+            <% else %>
+                 <a  href='javascript:void(0)' class='user-tooltip' title='Can not delete role with members.'>Destroy</a>
+            <% end %>
            </td>
          </tr>
          <tr><td>Description</td></tr>
@@ -25,38 +29,36 @@
        </table>
 
         <div class='security-users-accordion'>
-           <h3> Users in this role</h3>
+           <h3> Users in this role <span><%= security_users.count %></span></h3>
 
            <div>
-             da   <br/>
-             da
-             da  <br/>
-             da  <br/>
-             da <br/>
-             da <br/>
-             da   <br/>
-             da
-             da  <br/>
-             da  <br/>
-             da <br/>
-             da <br/>da   <br/>
-             da
-             da  <br/>
-             da  <br/>
-             da <br/>
-             da <br/>
-             da
+             <% if security_users.empty? %>
+                 <div>No users in this role found.</div>
+             <% else %>
+                 <div>Click on link to open user's profile in new tab.</div>
 
+                 <% security_users.each do |security_user| %>
+
+                     <%= link_to security_user.email,
+                                 security_users_detail_path(security_user.security_users_detail),
+                                 class:'user-tooltip',
+                                 target: '_blank',
+                                 title: security_user.security_users_detail.first_name + ' ' + security_user.security_users_detail.last_name %>
+
+                 <% end %>
+
+             <% end %>
            </div>
-
         </div>
-
-
      </div>
 
   <% end %>
 
 </div>
+
+<% content_for :footer do %>
+    <%= link_to 'Back to Gallery', webinars_path, remote: true %>
+<% end %>
 
 
 

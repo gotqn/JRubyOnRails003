@@ -58,6 +58,8 @@ class SecurityUser < ActiveRecord::Base
 
   has_secure_password
 
+  # Methods
+
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
@@ -99,6 +101,10 @@ class SecurityUser < ActiveRecord::Base
       end
     end
     is_completed
+  end
+
+  def get_security_user_details
+    SecurityUsersDetail.find_by_security_user_id(self.id)
   end
 
 end

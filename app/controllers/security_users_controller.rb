@@ -6,6 +6,7 @@ class SecurityUsersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render json: @security_users }
     end
   end
@@ -17,6 +18,7 @@ class SecurityUsersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.json { render json: @security_user }
     end
   end
@@ -28,6 +30,7 @@ class SecurityUsersController < ApplicationController
 
     respond_to do |format|
       format.html # create.html.erb
+      format.js
       format.json { render json: @security_user }
     end
   end
@@ -35,6 +38,12 @@ class SecurityUsersController < ApplicationController
   # GET /security_users/1/edit
   def edit
     @security_user = SecurityUser.find(params[:id])
+
+    respond_to do |format|
+      format.html # create.html.erb
+      format.js
+      format.json { render json: @security_user }
+    end
   end
 
   # POST /security_users
@@ -75,6 +84,7 @@ class SecurityUsersController < ApplicationController
     respond_to do |format|
       if @security_user.update_attributes(params[:security_user])
         format.html { redirect_to @security_user, notice: 'Security user was successfully updated.' }
+        format.js
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -91,6 +101,7 @@ class SecurityUsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to security_users_url }
+      format.js
       format.json { head :no_content }
     end
   end

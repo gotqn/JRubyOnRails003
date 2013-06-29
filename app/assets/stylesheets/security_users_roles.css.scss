@@ -12,21 +12,45 @@
     color: #405c60;
   }
 
-  h3:first-letter {
-    color: #405c60;
-  }
-
   .security-users-accordion {
-    width: 250px;
+    width: 300px;
     font-size:13px;
     font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
 
     h3 {
       color: #405c60;
+
+      span {
+        float: right;
+        padding-right: 10px;
+      }
     }
 
     div {
       color: #7f7c7c;
+
+      div {
+        padding-bottom: 10px;
+        font-style: italic;
+      }
+    }
+
+    a {
+      margin: 0px;
+      padding: 0px;
+      border: none;
+      background: #ffffff;
+    }
+
+    a:hover {
+      border: none;
+      background: #ffffff;
+
+    }
+
+    a:active {
+      border: none;
+      background: #ffffff;
     }
   }
 
@@ -144,6 +168,21 @@
     position: relative;
     top: 1px;
   }
-
-
 }
+
+.user-tooltip-default {
+  font-size:10px !important;
+  font-family: 'RobotoCondensed', Calibri, Arial, sans-serif !important;
+  color: #7f7c7c !important;
+  text-decoration: none !important;
+  -webkit-border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgb(203, 213, 214) !important;
+  -webkit-transition: all 0.4s linear !important;
+  -moz-transition: all 0.4s  linear !important;
+  -o-transition: all 0.4s linear !important;
+  -ms-transition: all 0.4s  linear !important;
+  transition: all 0.4s  linear !important;
+}
+

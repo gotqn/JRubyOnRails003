@@ -23,6 +23,10 @@ $(document).ready ->
 
     heightStyle: 'fill'
 
+  $('.user-tooltip').tooltip
+    track: true
+    tooltipClass: 'user-tooltip-default'
+
 
 
 

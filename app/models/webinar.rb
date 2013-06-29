@@ -26,6 +26,8 @@ class Webinar < ActiveRecord::Base
   validates :video, presence: true
   validate :is_video_file_uploaded
 
+  # Methods
+
   def is_video_file_uploaded
     if self.video?
       unless self.video.content_type.match(/video/)
