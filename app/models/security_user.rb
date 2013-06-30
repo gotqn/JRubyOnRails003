@@ -107,4 +107,41 @@ class SecurityUser < ActiveRecord::Base
     SecurityUsersDetail.find_by_security_user_id(self.id)
   end
 
+  def advanced_authentication(password)
+    status = true
+    if self.authenticate(password)
+      self.last_log_in_date = DateTime.now
+      save!(validate: false)
+    else
+      status = false
+    end
+    status
+  end
+
+  def changed_password(mode,params,current_password)
+
+    results = {
+        status: true,
+        errors: nil
+    }
+
+    if mode == 'mine'
+      if self.authenticate(current_password)
+        unless self.update_attributes(params)
+          results[:status] = false
+          results[:errors] = self.errors
+        end
+      else
+        results[:status] = false
+        results[:errors] = { current_password: 'Incorrect password.'}
+      end
+    else
+      unless self.update_attributes(params)
+        results[:status] = false
+        results[:errors] = self.errors
+      end
+    end
+    results
+  end
+
 end

@@ -157,7 +157,7 @@ for(var error in current_errors) {
 if(errors_counter == 0) {
     $('.b-content-container-content').html("<%=
    if @security_users_detail.errors.empty?
-      j render template:'security_users_details/show.html.erb', collection:@security_users_detail
+      j render template:'security_users_details/show.html.erb', locals:{ current_title_text: @current_title_text }, collection:@security_users_detail
    end
   %>");
 }

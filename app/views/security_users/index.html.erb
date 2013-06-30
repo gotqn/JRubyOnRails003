@@ -11,15 +11,15 @@
         <tr>
           <td>&nbsp;</td>
           <td>
-            <%= link_to 'Show', security_user %>
-            <%= link_to 'Details', security_users_detail_path(security_user.get_security_user_details) %>
-            <%= link_to 'Edit', edit_security_user_path(security_user) %>
-            <%= link_to 'Destroy', security_user, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Show', security_user, remote:true %>
+            <%= link_to 'Details', security_users_detail_path(security_user.get_security_user_details), remote:true %>
+            <%= link_to 'Change Password', edit_security_user_path(security_user), remote:true %>
+            <%= link_to 'Destroy', security_user, method: :delete, data: { confirm: 'Are you sure?' }, remote:true %>
           </td>
         </tr>
         <tr><td>Registration</td><td><%= security_user.registration_date.to_formatted_s(:long_ordinal) %></td></tr>
         <tr><td>Last log in date</td><td><%= security_user.last_log_in_date.to_formatted_s(:long_ordinal) %></td></tr>
-        <tr> <td>Is active</td><td><%= security_user.is_active %></td></tr>
+        <tr><td>Is active</td><td><%= security_user.is_active %></td></tr>
       </table>
     </div>
 

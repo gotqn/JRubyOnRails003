@@ -1,0 +1,9 @@
+var current_header = '#security-users-header-<%= @security_user.id%>';
+var current_div = $(current_header).next();
+
+$(current_div).slideUp(1000,'linear',function(){
+    $(this).remove();
+    $(current_header).slideUp(500,'linear',function(){
+        $(this).remove();
+    });
+});

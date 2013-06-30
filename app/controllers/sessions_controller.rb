@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
   def create
     @security_user = SecurityUser.find_by_email(params[:session][:email])
     @status = 'success'
-    if @security_user && @security_user.authenticate(params[:session][:password])
-
+    if @security_user && @security_user.advanced_authentication(params[:session][:password])
       if @security_user.is_active
         if params[:session][:keep_me_login] then
           cookies.permanent[:auth_token] = @security_user.auth_token

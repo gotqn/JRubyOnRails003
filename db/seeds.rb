@@ -32,9 +32,9 @@ users = {
    Admin: {
 
       Information: {
-        email: 'tuvarna.system.su.admin@gmail.com',
-        password: 'tuvarnasysadmin2013',
-        password_confirmation: 'tuvarnasysadmin2013'
+        email: 'tuvarna.system.master@gmail.com',
+        password: 'tuvarnasysmaster2013',
+        password_confirmation: 'tuvarnasysmaster2013'
       },
       Details: {
         address: 'Not defined',
@@ -45,7 +45,7 @@ users = {
         first_name: 'Admin',
         gender: 'male',
         gsm: '0000000000',
-        last_name: 'Admin',
+        last_name: 'Account',
         skype: 'Not defined.'
       },
       Roles: %w(Administrator)
@@ -54,9 +54,9 @@ users = {
    Administrator: {
 
       Information: {
-        email: 'tuvarna.system.su.administrator@gmail.com',
-        password: 'tuvarnasysadministrator2013',
-        password_confirmation: 'tuvarnasysadministrator2013'
+        email: 'tuvarna.system.super.user@gmail.com',
+        password: 'tuvarnasyssuperuser2013',
+        password_confirmation: 'tuvarnasyssuperuser2013'
       },
       Details: {
         address: 'Not defined',
@@ -67,7 +67,7 @@ users = {
         first_name: 'Administrator',
         gender: 'male',
         gsm: '0000000000',
-        last_name: 'Administrator',
+        last_name: 'Account',
         skype: 'Not defined'
       },
       Roles: %w(Admin)
@@ -76,7 +76,7 @@ users = {
    WebinarsManager: {
 
       Information: {
-        email: 'tuvarna.system.su.webinarsmanager@gmail.com',
+        email: 'tuvarna.system.webinarsmanager@gmail.com',
         password: 'tuvarnasyswebinarsmanager2013',
         password_confirmation: 'tuvarnasyswebinarsmanager2013'
       },
@@ -86,10 +86,10 @@ users = {
         country: 'Not defined',
         egn: '0000000000',
         faculty_number: '000000',
-        first_name: 'WebinarsManager',
+        first_name: 'Webinars',
         gender: 'male',
         gsm: '0000000000',
-        last_name: 'WebinarsManager',
+        last_name: 'Manager',
         skype: 'Not defined'
       },
       Roles: %w(WebinarsManager WebinarsViewPublic WebinarsViewProtected WebinarsViewPrivate)
@@ -98,7 +98,7 @@ users = {
    Translator: {
 
       Information: {
-        email: 'tuvarna.system.su.translator@gmail.com',
+        email: 'tuvarna.system.translator@gmail.com',
         password: 'tuvarnasystranslator2013',
         password_confirmation: 'tuvarnasystranslator2013'
       },
@@ -111,7 +111,7 @@ users = {
         first_name: 'Translator',
         gender: 'male',
         gsm: '0000000000',
-        last_name: 'Translator',
+        last_name: 'Manager',
         skype: 'Not defined'
       },
       Roles: %w(Translator)

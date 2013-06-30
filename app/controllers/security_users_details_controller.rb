@@ -45,6 +45,12 @@ class SecurityUsersDetailsController < ApplicationController
   def update
     @security_users_detail = SecurityUsersDetail.find(params[:id])
 
+    if current_user.id == @security_users_detail.security_user_id
+      @current_title_text = 'My Profile'
+    else
+      @current_title_text = 'My Profile of ' + @security_users_detail.first_name + ' ' + @security_users_detail.last_name
+    end
+
     respond_to do |format|
       if @security_users_detail.update_attributes(params[:security_users_detail])
         format.html { redirect_to @security_users_detail, notice: 'Security users detail was successfully updated.' }

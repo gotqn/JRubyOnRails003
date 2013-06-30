@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
     # checking if user is logged in
     def current_user
-
        begin
          @current_user ||= SecurityUser.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
        rescue ActiveRecord::RecordNotFound # in case user is logged in but his account is deleted

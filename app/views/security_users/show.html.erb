@@ -1,12 +1,12 @@
-<h1 class='sub-title'>User Profile</h1>
+<h1 class='sub-title'><%= @current_title_text %></h1>
 <div id='security-user-profile'>
     <table>
       <tr>
         <td>&nbsp;</td>
         <td>
-          <%= link_to 'Show', @security_user %>
-          <%= link_to 'Details', security_users_detail_path(@security_user.get_security_user_details) %>
-          <%= link_to 'Edit', edit_security_user_path(@security_user) %>
+          <%= link_to 'Show', @security_user, remote:true %>
+          <%= link_to 'Details', security_users_detail_path(@security_user.get_security_user_details), remote:true %>
+          <%= link_to 'Edit', edit_security_user_path(@security_user), remote:true %>
         </td>
       </tr>
       <tr><td>Email</td><td><%= @security_user.email %></td></tr>
@@ -17,6 +17,6 @@
 </div>
 
 <% content_for :footer do %>
-    <%= link_to 'Back to Gallery', security_users_path, remote: true %>
+    <%= link_to 'Back to Users List', security_users_path, remote: true %>
 <% end %>
 

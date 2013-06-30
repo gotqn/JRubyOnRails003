@@ -1,0 +1,13 @@
+$('.b-content-container-content').html("<%=j render template:'security_users/index.html.erb', collection:@security_users %>");
+
+$(document).ready(function() {
+    return $('#security-users-accordion').accordion({
+        collapsible: true,
+        active: false,
+        icons: {
+            header: 'ui-icon-plus',
+            activeHeader: 'ui-icon-minus'
+        }
+    });
+});
+
