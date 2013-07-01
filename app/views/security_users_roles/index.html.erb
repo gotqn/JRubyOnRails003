@@ -20,7 +20,7 @@
             <% if  security_users.empty? %>
              <%= link_to 'Destroy', security_users_role, method: :delete, data: { confirm: 'Are you sure?' }, remote:true %>
             <% else %>
-                 <a  href='javascript:void(0)' class='user-tooltip' title='Can not delete role with members.'>Destroy</a>
+              <a  href='javascript:void(0)' class='user-tooltip' title='Can not delete role with members.'>Destroy</a>
             <% end %>
            </td>
          </tr>

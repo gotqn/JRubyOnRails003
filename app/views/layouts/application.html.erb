@@ -39,6 +39,7 @@
               <li><a class="e-icon e-icon-user" href="#">Jason Quinn</a></li>
               <li><%= link_to 'My Profile', current_user.security_users_detail, remote:true, class: 'e-icon e-icon-camera' %></li>
               <li><a class="e-icon e-icon-heart" href="#">Settings</a></li>
+              <li><%= link_to 'Change Password', edit_security_user_path(current_user), remote:true, class: 'e-icon e-icon-camera' %></li>
               <li><%= link_to 'Logout', session_path('current'), method:'delete', class: 'e-icon e-icon-switch' %></li>
             </ul>
           </nav>

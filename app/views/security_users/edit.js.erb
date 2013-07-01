@@ -1,12 +1,8 @@
 var content_html = [];
 var footer_html = [];
 
-content_html.push('<h1 class="sub-title"><%= @current_details[:title_text] %></h1>');
-<% if @current_details[:is_profile_mine] %>
-    content_html.push('<%=j render 'change_my_password' %>');
-<% else %>
-    content_html.push('<%=j render 'change_user_password' %>');
-<% end %>
+content_html.push('<h1 class="sub-title"><%= @current_title_text %></h1>');
+content_html.push('<%=j render 'change_password' %>');
 
 footer_html.push('<%= j link_to 'Back to Users List', security_users_path, remote: true %>');
 

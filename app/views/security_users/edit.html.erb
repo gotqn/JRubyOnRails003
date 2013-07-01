@@ -1,10 +1,6 @@
-<h1 class='sub-title'><%= @current_details[:title_text] %></h1>
+<h1 class='sub-title'><%= @current_title_text %></h1>
 
-<% if @current_details[:is_profile_mine] %>
-    <%= render 'change_my_password' %>
-<% else %>
-    <%= render 'change_user_password' %>
-<% end %>
+<%= render 'change_password' %>
 
 <% content_for :footer do %>
     <%= link_to 'Back to Users List', security_users_path, remote: true %>

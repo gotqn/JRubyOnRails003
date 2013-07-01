@@ -1,9 +1,25 @@
 var current_header = '#security-users-role-header-<%= @security_users_role.id%>';
+var deletion_status = '<%= @security_users_role.errors[:deletion_status][0]%>';
 var current_div = $(current_header).next();
 
-$(current_div).slideUp(1000,'linear',function(){
-    $(this).remove();
-    $(current_header).slideUp(500,'linear',function(){
+if(deletion_status == 'OK.'){
+    $(current_div).slideUp(1000,'linear',function(){
         $(this).remove();
+        $(current_header).slideUp(500,'linear',function(){
+            $(this).remove();
+        });
     });
-});
+} else {
+
+    var content_html = [];
+    var footer_html = [];
+
+    content_html.push('<h1 class="sub-title">Internal Error</h1>');
+    content_html.push(deletion_status);
+
+    footer_html.push('<%= j link_to 'Back to Security Roles', security_users_roles_path, remote: true %>');
+
+    $('.b-content-container-content').html(content_html.join(''));
+    $('.b-content-container-footer').html(footer_html.join(''));
+}
+

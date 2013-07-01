@@ -2,24 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security_users/_change_my_password.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security_users/_change_user_password.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security_users/destroy.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security_users/edit.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security_users/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security_users/show.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/security_users/_change_my_password.html.erb" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/security_users/_change_user_password.html.erb" afterPath="$PROJECT_DIR$/app/views/security_users/_change_password.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security_users_roles/destroy.js.erb" afterPath="$PROJECT_DIR$/app/views/security_users_roles/destroy.js.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security_users/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/security_users/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security_users/index.html.erb" afterPath="$PROJECT_DIR$/app/views/security_users/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/recaptcha.rb" afterPath="$PROJECT_DIR$/config/initializers/recaptcha.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security_users/edit.js.erb" afterPath="$PROJECT_DIR$/app/views/security_users/edit.js.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security_users_roles/index.html.erb" afterPath="$PROJECT_DIR$/app/views/security_users_roles/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/security_user.rb" afterPath="$PROJECT_DIR$/app/models/security_user.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/security_users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/security_users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/security_users_details_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/security_users_details_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security_users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/security_users/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security_users_details/update.js.erb" afterPath="$PROJECT_DIR$/app/views/security_users_details/update.js.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/security_users_role.rb" afterPath="$PROJECT_DIR$/app/models/security_users_role.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="beta.iws" />
@@ -28,7 +20,7 @@
     <file path="/development.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372587137907" ignored="false" />
     <file path="/webinar.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372487951554" ignored="false" />
     <file path="/show.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372581225244" ignored="false" />
-    <file path="/index.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372583684785" ignored="false" />
+    <file path="/index.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372714506639" ignored="false" />
     <file path="/_form.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372422931366" ignored="false" />
     <file path="/20130503105037_change_column_type_summary.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1367578289961" ignored="false" />
     <file path="/production.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1367587046023" ignored="false" />
@@ -39,16 +31,16 @@
     <file path="/routes.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372419732653" ignored="false" />
     <file path="/gallery.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1367666992254" ignored="false" />
     <file path="/jquery.nivo.gallery.js" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1367666915930" ignored="false" />
-    <file path="/Dummy.txt" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372576247549" ignored="false" />
+    <file path="/Dummy.txt" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372706985237" ignored="false" />
     <file path="/userinterface.css.scss" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1367698708591" ignored="false" />
     <file path="/webinars.css.scss" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1371402748028" ignored="false" />
     <file path="/a.dummy" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372413946725" ignored="false" />
     <file path="/Gemfile" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1370086634190" ignored="false" />
-    <file path="/application.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372589341981" ignored="false" />
+    <file path="/application.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372715567594" ignored="false" />
     <file path="/20130515181039_create_security_users.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1368641607225" ignored="false" />
-    <file path="/security_user.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372620807452" ignored="false" />
+    <file path="/security_user.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372713259207" ignored="false" />
     <file path="/security_users_detail.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372493211143" ignored="false" />
-    <file path="/security_users_controller.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372622332646" ignored="false" />
+    <file path="/security_users_controller.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372713283199" ignored="false" />
     <file path="/_sing_in.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1368736455615" ignored="false" />
     <file path="/new.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372172398746" ignored="false" />
     <file path="/_sign_in.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1371888505730" ignored="false" />
@@ -60,7 +52,7 @@
     <file path="/show.js.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372581634841" ignored="false" />
     <file path="/edit.js.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372622061132" ignored="false" />
     <file path="/create.js.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372248630467" ignored="false" />
-    <file path="/destroy.js.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372239641322" ignored="false" />
+    <file path="/destroy.js.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372715990014" ignored="false" />
     <file path="/development.log" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1370690373914" ignored="false" />
     <file path="/sessions_controller.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372594911834" ignored="false" />
     <file path="/sessions.css.scss" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1371415395940" ignored="false" />
@@ -79,22 +71,21 @@
     <file path="/email_confirmation.css.scss" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1371937883673" ignored="false" />
     <file path="/message.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1371970763584" ignored="false" />
     <file path="/update.js.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372596864962" ignored="false" />
-    <file path="/security_users_role.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372513040507" ignored="false" />
+    <file path="/security_users_role.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372716094458" ignored="false" />
     <file path="/seeds.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372583193725" ignored="false" />
     <file path="/security_users_security_users_roles.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372104923548" ignored="false" />
     <file path="/security_users_roles.css.scss" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372503334966" ignored="false" />
     <file path="/security_users_roles.js.coffee" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372497350519" ignored="false" />
     <file path="/security_users_roles_controller.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372248016607" ignored="false" />
     <file path="/webinars.js.coffee" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372271299351" ignored="false" />
-    <file path="/Ruby Console" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372494299381" ignored="false" />
+    <file path="/Ruby Console" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372714311061" ignored="false" />
     <file path="/20130627131114_add_indexes.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372338746226" ignored="false" />
     <file path="/security_users_details_controller.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372597002398" ignored="false" />
     <file path="/application.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372372218355" ignored="false" />
-    <file path="$PROJECT_DIR$/log/development.log" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372419773297" ignored="false" />
     <file path="/20130629080547_fix_column_name.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372493171687" ignored="false" />
     <file path="/security_users.css.scss" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372540729652" ignored="false" />
     <file path="/_change_user_password.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372583621400" ignored="false" />
-    <file path="/_change_my_password.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372620469633" ignored="false" />
+    <file path="/_change_my_password.html.erb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372708223869" ignored="false" />
     <file path="/recaptcha.rb" changelist="2cd31b52-04c2-4ac8-9fed-ce287e061d7d" time="1372585781869" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,28 +106,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="security_users_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/security_users_controller.rb">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/security_users_roles/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="99" selection-start="2609" selection-end="2609" vertical-scroll-proportion="0.20306513">
+            <state line="28" column="106" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-13.75">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/security_users/edit.js.erb">
+      <file leaf-file-name="security_users_role.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/security_users_role.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="66" selection-start="175" selection-end="175" vertical-scroll-proportion="-2.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="security_user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/security_user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="65" selection-start="3677" selection-end="3677" vertical-scroll-proportion="0.0">
+            <state line="23" column="106" selection-start="718" selection-end="718" vertical-scroll-proportion="0.28719008">
               <folding />
             </state>
           </provider>
@@ -166,28 +148,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/security_users/edit.html.erb" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/app/views/security_users/_change_user_password.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/security_users/index.html.erb" />
-        <option value="$PROJECT_DIR$/config/initializers/recaptcha.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/app/views/security_users/destroy.js.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/security_users_details/update.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/security_users_details_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/security_users/_change_my_password.html.erb" />
+        <option value="$PROJECT_DIR$/log/development.log" />
         <option value="$PROJECT_DIR$/app/models/security_user.rb" />
-        <option value="$PROJECT_DIR$/app/views/security_users/edit.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/security_users_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/security_users/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/security_users/edit.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/security_users_roles/destroy.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/security_users_roles/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/security_users_role.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="257" />
-    <option name="y" value="96" />
+    <option name="x" value="378" />
+    <option name="y" value="24" />
     <option name="width" value="1325" />
     <option name="height" value="954" />
   </component>
@@ -217,7 +199,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -233,6 +215,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="beta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -274,29 +270,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="initializers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,6 +293,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -380,7 +362,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="security_users_details" />
+              <option name="myItemId" value="security_users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -402,7 +384,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="security_users" />
+              <option name="myItemId" value="password_resets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -495,80 +477,10 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -586,15 +498,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/sessions" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="52" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="438" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="293" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="438" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="52" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="50" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1041,11 +953,15 @@
       <created>1372540892911</created>
       <updated>1372540892911</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Version 20130508">
+      <created>1372622396096</created>
+      <updated>1372622396096</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="257" y="96" width="1325" height="954" extended-state="0" />
+    <frame x="378" y="24" width="1325" height="954" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985657" sideWeight="0.49954832" order="0" side_tool="false" content_ui="tabs" />
@@ -1053,11 +969,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35151514" sideWeight="0.49864498" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3095051" sideWeight="0.6484848" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25216025" sideWeight="0.6218182" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998747" sideWeight="0.5004517" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4678788" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37818182" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.49960032" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1132,114 +1048,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/security_users/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="89" selection-start="303" selection-end="303" vertical-scroll-proportion="-7.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="102" selection-start="465" selection-end="465" vertical-scroll-proportion="0.2606952">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/security_users.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="16" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users_details/edit.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users_details/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users_details/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="45" selection-start="27" selection-end="45" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/security_users_detail.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/security_users_details_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="43" selection-start="524" selection-end="524" vertical-scroll-proportion="0.16877638">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom/navigation.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="105" selection-start="3872" selection-end="3872" vertical-scroll-proportion="0.21270718">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users_details/update.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="112" selection-start="5955" selection-end="5973" vertical-scroll-proportion="0.7679325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users/show.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="152" selection-end="245" vertical-scroll-proportion="-3.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users/_change_user_password.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="84" selection-start="239" selection-end="239" vertical-scroll-proportion="-5.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users/_change_my_password.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="33" selection-start="79" selection-end="95" vertical-scroll-proportion="-1.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/security_user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="65" selection-start="3677" selection-end="3677" vertical-scroll-proportion="0.0">
+        <state line="124" column="78" selection-start="3689" selection-end="3698" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security_users/edit.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="66" selection-start="175" selection-end="175" vertical-scroll-proportion="-2.5">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security_users/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/security_users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="99" selection-start="2609" selection-end="2609" vertical-scroll-proportion="0.20306513">
+        <state line="41" column="23" selection-start="1067" selection-end="1086" vertical-scroll-proportion="0.651341">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security_users_roles/index.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security_users/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="45" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sessions/create.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="86" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="90" selection-start="3238" selection-end="3238" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="102" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.31914893">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security_users/destroy.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security_users/edit.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="273" selection-end="396" vertical-scroll-proportion="0.27522936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shared/system_message.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="12" selection-start="47" selection-end="54" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security_users_roles/destroy.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="91" selection-start="433" selection-end="433" vertical-scroll-proportion="0.35869566">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security_users_roles/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="106" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-13.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/security_users_role.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="106" selection-start="718" selection-end="718" vertical-scroll-proportion="0.28719008">
           <folding />
         </state>
       </provider>

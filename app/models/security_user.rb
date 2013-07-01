@@ -118,30 +118,17 @@ class SecurityUser < ActiveRecord::Base
     status
   end
 
-  def changed_password(mode,params,current_password)
+  def is_profile_mine (security_user_id, text_on_true, text_on_false)
+    # Placeholders {first_name}, {last_name}
+    (self.id == security_user_id) ? result_text = text_on_true : result_text = text_on_false
 
-    results = {
-        status: true,
-        errors: nil
-    }
-
-    if mode == 'mine'
-      if self.authenticate(current_password)
-        unless self.update_attributes(params)
-          results[:status] = false
-          results[:errors] = self.errors
-        end
-      else
-        results[:status] = false
-        results[:errors] = { current_password: 'Incorrect password.'}
-      end
-    else
-      unless self.update_attributes(params)
-        results[:status] = false
-        results[:errors] = self.errors
-      end
+    if result_text.include? '{first_name}' or result_text.include? '{last_name}'
+      security_users_detail = SecurityUsersDetail.find_by_security_user_id(self.id)
+      result_text.sub! '{first_name}', security_users_detail.first_name
+      result_text.sub! '{last_name}', security_users_detail.last_name
     end
-    results
+
+    result_text
   end
 
 end

@@ -15,12 +15,7 @@ class SecurityUsersController < ApplicationController
   # GET /security_users/1.json
   def show
     @security_user = SecurityUser.find(params[:id])
-
-    if current_user.id == @security_user.id
-      @current_title_text = 'My Profile Status'
-    else
-      @current_title_text = 'Profile Status of ' + @security_users_detail.first_name + ' ' + @security_users_detail.last_name
-    end
+    @current_title_text = @security_user.is_profile_mine(current_user.id,'My Profile Status','Profile Status of {first_name} {last_name}')
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,13 +39,7 @@ class SecurityUsersController < ApplicationController
   # GET /security_users/1/edit
   def edit
     @security_user = SecurityUser.find(params[:id])
-    security_users_detail = SecurityUsersDetail.find_by_security_user_id(@security_user.id)
-    @current_details = { is_profile_mine: true, title_text: 'Change Password' }
-
-    unless current_user.id == @security_user.id
-      @current_details[:title_text] = 'Change Password of ' + security_users_detail.first_name + ' ' + security_users_detail.last_name
-      @current_details[:is_profile_mine] = false
-    end
+    @current_title_text = @security_user.is_profile_mine(current_user.id,'Change Password','Change Password of {first_name} {last_name}')
 
     respond_to do |format|
       format.html {@current_details}
@@ -92,34 +81,20 @@ class SecurityUsersController < ApplicationController
   # PUT /security_users/1
   # PUT /security_users/1.json
   def update
+
     @security_user = SecurityUser.find(params[:id])
 
-    (current_user.id == @security_user.id) ? mode = 'mine' : mode = 'others'
-
-    results = @security_user.changed_password(mode,params[:security_user],params[:current_password])
-
     respond_to do |format|
-      if  results[:status]
+      if @security_user.update_attributes(params[:security_user])
         format.html { redirect_to @security_user, notice: 'Security user was successfully updated.' }
         format.js
-        format.json { head :no_content }
+      format.json { head :no_content }
       else
-        format.html { redirect_to action: 'edit' , security_user:@security_user }#render action: 'edit', locals: {security_user:@security_user} }
-        format.js
+        format.html { render action: 'edit' }
+        format.js { @security_user }
         format.json { render json: @security_user.errors, status: :unprocessable_entity }
       end
     end
-
-    #respond_to do |format|
-    #  if @security_user.update_attributes(params[:security_user])
-    #    format.html { redirect_to @security_user, notice: 'Security user was successfully updated.' }
-    #    format.js
-    #  format.json { head :no_content }
-    #  else
-    #    format.html { render action: 'edit' }
-    #    format.json { render json: @security_user.errors, status: :unprocessable_entity }
-    #  end
-    #end
   end
 
   # DELETE /security_users/1
