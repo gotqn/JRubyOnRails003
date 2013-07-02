@@ -1,5 +1,14 @@
 <h1 class='sub-title'>Security Users List</h1>
 
+<%= simple_form_for :search, url: security_users_path, method: 'get' do |f| %>
+    <%= f.input :search_name,
+                label: 'Title',
+                input_html: { value: params[:search] ? params[:search][:search_name]: nil,
+                              data: {autocomplete_source: SecurityUser.order(:email).map(&:email)}} %>
+    <%= f.button :submit, 'Search', :name => nil  %>
+<% end %>
+
+
 <div id='security-users-accordion'>
 
   <% @security_users.each do |security_user| %>

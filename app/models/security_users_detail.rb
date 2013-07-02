@@ -28,4 +28,17 @@ class SecurityUsersDetail < ActiveRecord::Base
   validates :gsm, length: { in: 2..16}, format: { with: /\A[0-9]+\z/, message: 'Only numbers allowed' }
   validates :skype, length: { in: 2..128}
 
+  # Methods
+  def is_profile_mine (security_user_id, text_on_true, text_on_false)
+    # Placeholders {first_name}, {last_name}
+    (self.security_user_id == security_user_id) ? result_text = text_on_true : result_text = text_on_false
+
+    if result_text.include? '{first_name}' or result_text.include? '{last_name}'
+      result_text.sub! '{first_name}', self.first_name
+      result_text.sub! '{last_name}', self.last_name
+    end
+
+    result_text
+  end
+
 end

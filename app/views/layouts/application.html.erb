@@ -53,7 +53,7 @@
           <nav class="b-menu-container">
             <div class="e-trigger"><span class="e-icon e-icon-menu"></span><a class="e-label">Users</a></div>
             <ul>
-              <li><%= link_to 'List', security_users_path , class:'e-icon e-icon-camera' %></li>
+              <li><%= link_to 'List', security_users_path , remote:true, class:'e-icon e-icon-camera' %></li>
               <li><a class="e-icon e-icon-camera" href="#">Create</a></li>
               <li><a class="e-icon e-icon-heart" href="#">Security groups</a></li>
             </ul>

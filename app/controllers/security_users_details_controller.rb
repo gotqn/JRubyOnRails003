@@ -6,12 +6,7 @@ class SecurityUsersDetailsController < ApplicationController
   # GET /security_users_details/1.json
   def show
     @security_users_detail = SecurityUsersDetail.find(params[:id])
-
-    if current_user.id == @security_users_detail.security_user_id
-      @current_title_text = 'My Profile'
-    else
-      @current_title_text = 'Profile of ' + @security_users_detail.first_name + ' ' + @security_users_detail.last_name
-    end
+    @current_title_text = @security_users_detail.is_profile_mine(current_user.id,'My Profile Status','Profile Status of {first_name} {last_name}')
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,17 +17,9 @@ class SecurityUsersDetailsController < ApplicationController
 
   # GET /security_users_details/1/edit
   def edit
-
     @security_users_detail = SecurityUsersDetail.find(params[:id])
-
-    if current_user.id == @security_users_detail.security_user_id
-      @current_title_text = 'Edit Profile'
-    else
-      @current_title_text = 'Edit Profile of ' + @security_users_detail.first_name + ' ' + @security_users_detail.last_name
-    end
-
+    @current_title_text = @security_users_detail.is_profile_mine(current_user.id,'Edit Profile','Edit Profile of {first_name} {last_name}')
     @submit_button_text = 'Save Changes'
-    @security_users_detail = SecurityUsersDetail.find(params[:id])
 
     respond_to do |format|
       format.html
