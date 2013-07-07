@@ -1,6 +1,16 @@
-$('.b-content-container-content').html("<%=j render template:'security_users/index.html.erb', collection:@security_users %>");
+$('.b-content-container-content').html("<%=j render template:'security_users_manage_securities/index.html.erb', collection:@security_users %>");
 
 $(document).ready(function() {
+
+    $('#security-accordion').accordion({
+        collapsible: true,
+        active: false,
+        icons: {
+            header: 'ui-icon-plus',
+            activeHeader: 'ui-icon-minus'
+        },
+        heightStyle: 'content'
+    });
 
     $('.b-date-picker').datepicker({
         dateFormat: 'yy-mm-dd',
@@ -13,13 +23,9 @@ $(document).ready(function() {
         }
     });
 
-    $('#security-users-accordion').accordion({
-        collapsible: true,
-        active: false,
-        icons: {
-            header: 'ui-icon-plus',
-            activeHeader: 'ui-icon-minus'
-        }
+    $('.b-checkbox .user-tooltip').tooltip({
+        track: true,
+        tooltipClass: 'security-tooltip-default'
     });
 
     $(".b-search-container input:checkbox").click(function() {
@@ -32,7 +38,7 @@ $(document).ready(function() {
     (function(){
         $('.b-date-picker').each(function(){
             if($(this).val().length>10){
-               $(this).datepicker( "option", "dateFormat", "yy-mm-dd" );
+                $(this).datepicker( "option", "dateFormat", "yy-mm-dd" );
             }
 
             if ($(this).attr('name').indexOf('gteq') > 0) {
@@ -53,7 +59,7 @@ $(document).ready(function() {
 });
 
 var footer_html = [];
-footer_html.push('<%=j link_to 'Back to Gallery', webinars_path, remote:true %>');
+footer_html.push('<%=j link_to 'Back to Manage Security', security_users_manage_securities_path, remote:true %>');
 $('.b-content-container-footer').html(footer_html.join(''));
 
 

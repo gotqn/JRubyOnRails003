@@ -1,6 +1,10 @@
 Beta::Application.routes.draw do
 
-  resources :security_users_manage_securities
+  resources :security_users_manage_securities, excepts: [:create, :new, :destroy] do
+    collection do
+      match 'search' => 'security_users_manage_securities#index', via: [:get, :post]
+    end
+  end
   resources :security_users_roles
   resources :security_users_details, only: [:show, :edit, :update ]
   resources :security_users do

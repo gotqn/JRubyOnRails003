@@ -23,10 +23,14 @@ $(document).ready ->
 
     heightStyle: 'fill'
 
-  $('.user-tooltip').tooltip
+  $('#security-users-roles-accordion .user-tooltip').tooltip
     track: true
     tooltipClass: 'user-tooltip-default'
 
+  $(".e-clear-form").on "click", ->
+    form = $(this).closest("form")
+    $(form).find("input:text").val ""
+    $(form).find("input:checkbox").prop "checked", false
 
 
 

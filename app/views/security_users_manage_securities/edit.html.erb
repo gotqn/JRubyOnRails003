@@ -1,6 +1,22 @@
-<h1>Editing security_users_manage_security</h1>
+<h1 class='sub-title'>Edit Security</h1>
+
+<div class='b-security' style='margin:0;'>
+    <table>
+      <caption>User Details</caption>
+      <tr>
+        <td>Email:</td><td><%= @security_user.email %></td>
+      </tr>
+      <tr>
+        <td>First Name:</td><td><%= @security_user.security_users_detail.first_name %></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td><td><%= @security_user.security_users_detail.last_name %></td>
+      </tr>
+    </table>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @security_users_manage_security %> |
-<%= link_to 'Back', security_users_manage_securities_path %>
+<% content_for :footer do %>
+    <%= link_to 'Back to Manage Security', security_users_manage_securities_path, remote:true %>
+<% end %>

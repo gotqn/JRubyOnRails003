@@ -1,15 +1,40 @@
-<p id="notice"><%= notice %></p>
+<h1 class='sub-title'>Security</h1>
 
-<p>
-  <b>Security user:</b>
-  <%= @security_users_manage_security.security_user %>
-</p>
+<div class='b-security'>
 
-<p>
-  <b>Security users role:</b>
-  <%= @security_users_manage_security.security_users_role %>
-</p>
+  <table>
+    <caption>User Details</caption>
+    <tr>
+      <td>Email:</td><td><%= @security_user.email %></td>
+    </tr>
+    <tr>
+      <td>First Name:</td><td><%= @security_user.security_users_detail.first_name %></td>
+    </tr>
+    <tr>
+      <td>Last Name:</td><td><%= @security_user.security_users_detail.last_name %></td>
+    </tr>
+  </table>
+
+  <%= link_to 'Edit Security', edit_security_users_manage_security_path(@security_user) %>
+  <br />
+  <br />
+  <table>
+    <caption>User Security</caption>
+    <% @security_user.get_security_user_roles_by_id(false).each do |role|  %>
+        <tr>
+          <td><%= role.role %> </td>
+          <td><%= role.description %> </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+<% content_for :footer do%>
+    <%= link_to 'Back to Manage Security', security_users_manage_securities_path, remote:true %>
+<% end %>
 
 
-<%= link_to 'Edit', edit_security_users_manage_security_path(@security_users_manage_security) %> |
-<%= link_to 'Back', security_users_manage_securities_path %>
+
+
+
+

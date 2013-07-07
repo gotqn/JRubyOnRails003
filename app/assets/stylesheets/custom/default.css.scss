@@ -436,13 +436,23 @@ div.fieldset-display {
     }
 
     [data-icon]:after {
+      font-family: 'iconmoon';
       content: attr(data-icon);
-      font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
       color: rgb(106, 159, 171);
       position: absolute;
-      left: 10px;
-      top: 25px;
+      left: 5px;
+      top: 30px;
       width: 30px;
     }
   }
 }
+
+table {
+  border-collapse: collapse;
+  td, th {
+    padding: 0;
+  }
+}
+
+
+

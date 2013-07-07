@@ -1,12 +1,25 @@
-<%= simple_form_for(@security_users_manage_security) do |f| %>
-  <%= f.error_notification %>
+<%= form_for  @security_user, url: security_users_manage_securities_path(@security_user),
+              html: { class: 'default', method: :put, id: 'security-default-form' } do |f| %>
 
-  <div class="form-inputs">
-    <%= f.association :security_user %>
-    <%= f.association :security_users_role %>
-  </div>
+    <% current_user_roles_ids = @security_user.get_security_user_roles_by_id(true) %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.submit 'Update Security', class: 'btn'  %>
+
+    <% @security_users_roles.each do |role| %>
+
+        <div class='b-checkbox'>
+        <%= label_tag(role.role, role.role, class: 'user-tooltip', title:role.description ) %>
+        <% if current_user_roles_ids.include?(role.id) %>
+        <%= check_box_tag role.role, role.id, true %>
+        <% else %>
+        <%= check_box_tag role.role, role.id, false %>
+        <% end %>
+        </div>
+
+    <% end %>
+
+    <%= f.submit 'Update Security', class: 'btn'  %>
+
 <% end %>
+
+

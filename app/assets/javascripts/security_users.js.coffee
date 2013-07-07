@@ -18,7 +18,7 @@ $(document).ready ->
       header: "ui-icon-plus"
       activeHeader: "ui-icon-minus"
 
-  $("input:checkbox").click ->
+  $(".b-search-container input:checkbox").click ->
     group = undefined
     group = "input:checkbox[data-group='" + $(this).attr("data-group") + "']"
     $(group).prop "checked", false

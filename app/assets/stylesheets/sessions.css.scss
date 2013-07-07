@@ -26,6 +26,16 @@ form.signup, form.login {
     padding-left: 5px;
   }
 
+  [data-icon]:after {
+    font-family: 'iconmoon';
+    content: attr(data-icon);
+    color: rgb(106, 159, 171);
+    position: absolute;
+    left: 10px;
+    top: 35px;
+    width: 30px;
+  }
+
 }
 
 #b-log-or-sign-in-container {
@@ -105,7 +115,7 @@ form.signup, form.login {
 
       width: 284px;
       margin-top: 4px;
-      padding: 10px 0px 10px 25px;
+      padding: 10px 0px 10px 30px;
       border: 1px solid rgb(178, 178, 178);
       -webkit-appearance: textfield;
       -webkit-box-sizing: content-box;
@@ -374,7 +384,9 @@ input {
 
 
 /** the magic icon trick ! **/
+/*
 [data-icon]:after {
+  font-family: 'iconmoon';
   content: attr(data-icon);
   font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
   color: rgb(106, 159, 171);
@@ -383,6 +395,7 @@ input {
   top: 35px;
   width: 30px;
 }
+*/
 
 /** the actual animation, credit where due : http://daneden.me/animate/ ***/
 .animate{

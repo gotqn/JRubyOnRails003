@@ -1,7 +1,10 @@
 $('.b-content-container-content').html("<%=j render template:'security_users_roles/index.html.erb', collection:@security_users_roles %>");
 
 $(document).ready(function() {
-    $('#security-users-roles-accordion').accordion({
+
+    var container = $('#security-users-roles-accordion');
+
+    $(container).accordion({
         collapsible: true,
         active: false,
         icons: {
@@ -10,7 +13,7 @@ $(document).ready(function() {
         },
         heightStyle: 'content',
         beforeActivate: function() {
-            return $('.security-users-accordion').accordion('option', 'active', false);
+            $('.security-users-accordion').accordion('option', 'active', false);
         }
     });
     $('.security-users-accordion').accordion({
@@ -22,7 +25,8 @@ $(document).ready(function() {
         },
         heightStyle: 'fill'
     });
-    return $('.user-tooltip').tooltip({
+
+    $(container).find('.user-tooltip').tooltip({
         track: true,
         tooltipClass: 'user-tooltip-default'
     });

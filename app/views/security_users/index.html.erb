@@ -4,7 +4,7 @@
 <%= search_form_for @search, url: search_security_users_path, method: :post, remote: true do |f| %>
 
     <div class='text'>
-    <%= f.label :email_cont, 'Email contains', 'data-icon' => 'e' %>
+    <%= f.label :email_cont, 'Email contains', 'data-icon' => 'm'%>
     <%= f.text_field :email_cont %>
     </div>
 
@@ -19,7 +19,7 @@
     <table>
     <tr>
       <td>
-        <%= f.label :registration_date_gteq, 'Registration', 'data-icons' => 'e' %>
+        <%= f.label :registration_date_gteq, 'Registration', 'data-icons' => '*' %>
         <%= f.text_field :registration_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
       </td>
       <td>
@@ -34,7 +34,7 @@
     <table>
       <tr>
         <td>
-          <%= f.label :last_log_in_date_gteq, 'Last log in', 'data-icons' => 'e' %>
+          <%= f.label :last_log_in_date_gteq, 'Last log in', 'data-icons' => '*' %>
           <%= f.text_field :last_log_in_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
         </td>
         <td>
@@ -50,7 +50,7 @@
     </div>
 
     <div class='button'>
-      <input name="commit" type="reset" value="Clear">
+    <input name="commit" type="button" value="Clear" class="e-clear-form">
     </div>
 
 <% end %>

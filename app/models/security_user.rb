@@ -44,7 +44,7 @@ class SecurityUser < ActiveRecord::Base
   has_many :security_users_roles, through: :security_users_manage_securities
 
   # Access to other relationships models' fields
-  #accepts_nested_attributes_for :security_users_roles
+  accepts_nested_attributes_for :security_users_roles
   #accepts_nested_attributes_for :security_users_detail
 
   # Validations
@@ -131,4 +131,16 @@ class SecurityUser < ActiveRecord::Base
     result_text
   end
 
+  def get_security_user_roles_by_id (get_ids_only)
+
+    if get_ids_only
+      SecurityUsersRole.joins(:security_users)
+      .where(security_users:{id:self.id})
+      .select('security_users_roles.id')
+      .pluck('security_users_roles.id')
+    else
+      SecurityUsersRole.joins(:security_users)
+      .where(security_users:{id:self.id})
+    end
+  end
 end

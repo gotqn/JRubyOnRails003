@@ -18,32 +18,32 @@
     }
 
     [data-icon]:after {
+      font-family: 'iconmoon';
       content: attr(data-icon);
-      font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
       color: rgb(106, 159, 171);
       position: absolute;
-      left: 10px;
-      top: 25px;
+      left: 5px;
+      top: 30px;
       width: 30px;
     }
 
     [data-icons]:before {
       content: attr(data-icons);
-      font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+      font-family: 'iconmoon';
       color: rgb(106, 159, 171);
       position: absolute;
-      left: 10px;
-      top: 25px;
+      left: 5px;
+      top: 30px;
       width: 30px;
     }
 
     [data-icons]:after {
       content: attr(data-icons);
-      font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+      font-family: 'iconmoon';
       color: rgb(106, 159, 171);
       position: absolute;
-      left: 190px;
-      top: 25px;
+      left: 182px;
+      top: 30px;
       width: 30px;
     }
 

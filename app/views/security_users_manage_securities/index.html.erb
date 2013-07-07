@@ -1,25 +1,94 @@
-<h1>Listing security_users_manage_securities</h1>
+<h1 class='sub-title'>Manage Security</h1>
 
-<table>
-  <tr>
-    <th>Security user</th>
-    <th>Security users role</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class='b-search-container'>
+  <%= search_form_for @search, url: search_security_users_manage_securities_path,
+                      method: :post, remote: true do |f| %>
 
-<% @security_users_manage_securities.each do |security_users_manage_security| %>
-  <tr>
-    <td><%= security_users_manage_security.security_user %></td>
-    <td><%= security_users_manage_security.security_users_role %></td>
-    <td><%= link_to 'Show', security_users_manage_security %></td>
-    <td><%= link_to 'Edit', edit_security_users_manage_security_path(security_users_manage_security) %></td>
-    <td><%= link_to 'Destroy', security_users_manage_security, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+      <div class='text'>
+        <%= f.label :email_cont, 'Email contains', 'data-icon' => 'm'%>
+        <%= f.text_field :email_cont %>
+      </div>
+
+      <div class='radio'>
+        <%= f.label :is_active_true, 'Is active' %>
+        <%= f.check_box :is_active_true, 'data-group' => 'radio'%>
+        <%= f.label :is_active_false, 'Is not active' %>
+        <%= f.check_box :is_active_false, 'data-group' => 'radio' %>
+      </div>
+
+      <div class='text-date'>
+        <table>
+          <tr>
+            <td>
+              <%= f.label :registration_date_gteq, 'Registration', 'data-icons' => '*' %>
+              <%= f.text_field :registration_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
+            </td>
+            <td>
+              <%= f.label :registration_date_lteq, 'Registration' %>
+              <%= f.text_field :registration_date_lteq, placeholder:'End Date', class:'b-date-picker' %>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='text-date'>
+        <table>
+          <tr>
+            <td>
+              <%= f.label :last_log_in_date_gteq, 'Last log in', 'data-icons' => '*' %>
+              <%= f.text_field :last_log_in_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
+            </td>
+            <td>
+              <%= f.label :last_log_in_date_lteq, 'Registration' %>
+              <%= f.text_field :last_log_in_date_lteq, placeholder:'End Date', class:'b-date-picker' %>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='button'>
+        <%= f.submit 'Search' %>
+      </div>
+
+      <div class='button'>
+      <input name="commit" type="button" value="Clear" class="e-clear-form">
+      </div>
+
+  <% end %>
+</div>
+
+<div id='security-accordion'>
+
+  <% @security_users.each do |security_user| %>
+
+      <h3 id='security-users-role-header-<%= security_user.id	%>'>
+        <%= security_user.email %>
+        <%= security_user.security_users_detail.first_name %>
+        <%= security_user.security_users_detail.last_name %>
+      </h3>
+
+      <div>
+
+        <table>
+          <tr>
+            <td colspan='2'>
+              <%= link_to 'Show', security_users_manage_security_path(security_user) %>
+              <%= link_to 'Edit', edit_security_users_manage_security_path(security_user) %>
+            </td>
+          </tr>
+          <% security_user.get_security_user_roles_by_id(false).each do |role|  %>
+          <tr>
+            <td><%=	role.role %> </td>
+            <td><%=	role.description %> </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+
+  <% end %>
+
+</div>
+
+<% content_for :footer do %>
+    <%= link_to 'Back to Gallery', webinars_path, remote: true %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Security users manage security', new_security_users_manage_security_path %>

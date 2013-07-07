@@ -17,7 +17,7 @@ Beta::Application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   #config.action_mailer.default_url_options = { :host => '127.0.0.1:8080' }
-  config.action_mailer.default_url_options = { :host => '192.168.0.101:8080' }
+  config.action_mailer.default_url_options = { :host => '192.168.0.103:8080' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       address:"smtp.gmail.com",
