@@ -1,7 +1,19 @@
 $('.b-content-container-content').html("<%=j render template:'security_users/index.html.erb', collection:@security_users %>");
 
 $(document).ready(function() {
-    return $('#security-users-accordion').accordion({
+
+    $('.b-date-picker').datepicker({
+        dateFormat: 'yy-mm-dd',
+        onSelect: function(date) {
+            if ($(this).attr('name').indexOf('gteq') > 0) {
+                $(this).parent().next().find('input').datepicker('option', 'minDate', date);
+            } else {
+                $(this).parent().prev().find('input').datepicker('option', 'maxDate', date);
+            }
+        }
+    });
+
+    $('#security-users-accordion').accordion({
         collapsible: true,
         active: false,
         icons: {
@@ -9,5 +21,33 @@ $(document).ready(function() {
             activeHeader: 'ui-icon-minus'
         }
     });
+
+    $("input:checkbox").click(function() {
+        var group;
+        group = "input:checkbox[data-group='" + $(this).attr("data-group") + "']";
+        $(group).prop("checked", false);
+        $(this).prop("checked", true);
+    });
+
+    (function(){
+        $('.b-date-picker').each(function(){
+            if($(this).val().length>10){
+               $(this).datepicker( "option", "dateFormat", "yy-mm-dd" );
+            }
+
+            if ($(this).attr('name').indexOf('gteq') > 0) {
+                $(this).parent().next().find('input').datepicker('option', 'minDate', $(this).val().substring(0,10));
+            } else {
+                $(this).parent().prev().find('input').datepicker('option', 'maxDate', $(this).val().substring(0,10));
+            }
+        });
+    }());
 });
+
+var footer_html = [];
+footer_html.push('<%=j link_to 'Back to Gallery', webinars_path, remote:true %>');
+$('.b-content-container-footer').html(footer_html.join(''));
+
+
+
 

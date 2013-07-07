@@ -1,13 +1,60 @@
 <h1 class='sub-title'>Security Users List</h1>
 
-<%= simple_form_for :search, url: security_users_path, method: 'get' do |f| %>
-    <%= f.input :search_name,
-                label: 'Title',
-                input_html: { value: params[:search] ? params[:search][:search_name]: nil,
-                              data: {autocomplete_source: SecurityUser.order(:email).map(&:email)}} %>
-    <%= f.button :submit, 'Search', :name => nil  %>
-<% end %>
+<div class='b-search-container'>
+<%= search_form_for @search, url: search_security_users_path, method: :post, remote: true do |f| %>
 
+    <div class='text'>
+    <%= f.label :email_cont, 'Email contains', 'data-icon' => 'e' %>
+    <%= f.text_field :email_cont %>
+    </div>
+
+    <div class='radio'>
+    <%= f.label :is_active_true, 'Is active' %>
+    <%= f.check_box :is_active_true, 'data-group' => 'radio'%>
+    <%= f.label :is_active_false, 'Is not active' %>
+    <%= f.check_box :is_active_false, 'data-group' => 'radio' %>
+    </div>
+
+    <div class='text-date'>
+    <table>
+    <tr>
+      <td>
+        <%= f.label :registration_date_gteq, 'Registration', 'data-icons' => 'e' %>
+        <%= f.text_field :registration_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
+      </td>
+      <td>
+        <%= f.label :registration_date_lteq, 'Registration' %>
+        <%= f.text_field :registration_date_lteq, placeholder:'End Date', class:'b-date-picker' %>
+      </td>
+    </tr>
+    </table>
+    </div>
+
+    <div class='text-date'>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :last_log_in_date_gteq, 'Last log in', 'data-icons' => 'e' %>
+          <%= f.text_field :last_log_in_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
+        </td>
+        <td>
+          <%= f.label :last_log_in_date_lteq, 'Registration' %>
+          <%= f.text_field :last_log_in_date_lteq, placeholder:'End Date', class:'b-date-picker' %>
+        </td>
+      </tr>
+    </table>
+    </div>
+
+    <div class='button'>
+    <%= f.submit 'Search' %>
+    </div>
+
+    <div class='button'>
+      <input name="commit" type="reset" value="Clear">
+    </div>
+
+<% end %>
+</div>
 
 <div id='security-users-accordion'>
 

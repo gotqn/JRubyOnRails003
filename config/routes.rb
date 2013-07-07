@@ -3,7 +3,11 @@ Beta::Application.routes.draw do
   resources :security_users_manage_securities
   resources :security_users_roles
   resources :security_users_details, only: [:show, :edit, :update ]
-  resources :security_users
+  resources :security_users do
+    collection do
+      match 'search' => 'security_users#index', via: [:get, :post]
+    end
+  end
   resources :webinars
   resources :sessions
   resources :password_resets

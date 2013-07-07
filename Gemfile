@@ -34,7 +34,7 @@ gem 'streamio-ffmpeg'
 
 gem 'recaptcha', require: 'recaptcha/rails'
 
-
+gem 'ransack'
 
 
 #gem 'rvideo'

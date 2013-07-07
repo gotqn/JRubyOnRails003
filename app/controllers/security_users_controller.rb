@@ -2,7 +2,8 @@ class SecurityUsersController < ApplicationController
   # GET /security_users
   # GET /security_users.json
   def index
-    @security_users = SecurityUser.order(:email)
+    @search = SecurityUser.search(params[:q])
+    @security_users = @search.result.order(:email)
 
     respond_to do |format|
       format.html # index.html.erb
