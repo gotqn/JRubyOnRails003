@@ -1,0 +1,26 @@
+var content_html = [];
+var footer_html = [];
+
+content_html.push('<h1 class="sub-title">Edit Security</h1>');
+content_html.push('<div class="b-security" style="margin:0;">');
+    content_html.push('<table>');
+    content_html.push('<caption>User Details</caption>');
+        content_html.push('<tr>');
+            content_html.push('<td>Email:</td><td><%= @security_user.email %></td>');
+        content_html.push('</tr>');
+        content_html.push('<tr>');
+            content_html.push('<td>First Name:</td><td><%= @security_user.security_users_detail.first_name %></td>');
+        content_html.push('</tr>');
+        content_html.push('<tr>');
+            content_html.push('<td>Last Name:</td><td><%= @security_user.security_users_detail.last_name %></td>');
+        content_html.push('</tr>');
+    content_html.push('</table>');
+content_html.push('</div>');
+content_html.push('<%=j render 'form' %>');
+
+footer_html.push('<%=j link_to 'Back to Manage Security', security_users_manage_securities_path, remote:true %>');
+
+$('.b-content-container-content').html(content_html.join(''));
+$('.b-content-container-footer').html(footer_html.join(''));
+
+

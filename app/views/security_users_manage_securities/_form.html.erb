@@ -1,4 +1,5 @@
-<%= form_for  @security_user, url: security_users_manage_securities_path(@security_user),
+<%= form_for  @security_user, remote:true,
+              url: security_users_manage_securities_path + '/' + @security_user.id.to_s,
               html: { class: 'default', method: :put, id: 'security-default-form' } do |f| %>
 
     <% current_user_roles_ids = @security_user.get_security_user_roles_by_id(true) %>
@@ -8,11 +9,15 @@
     <% @security_users_roles.each do |role| %>
 
         <div class='b-checkbox'>
-        <%= label_tag(role.role, role.role, class: 'user-tooltip', title:role.description ) %>
+        <%= label_tag( 'roles[' + role.id.to_s + ']', role.role,
+                       class: 'user-tooltip', title:role.description,
+                       for: 'roles[' + role.id.to_s + ']' )%>
         <% if current_user_roles_ids.include?(role.id) %>
-        <%= check_box_tag role.role, role.id, true %>
+        <%= check_box_tag 'roles[' + role.role.to_s + ']', role.id, true,
+                          { id: 'roles[' + role.id.to_s + ']'} %>
         <% else %>
-        <%= check_box_tag role.role, role.id, false %>
+        <%= check_box_tag 'roles[' + role.role.to_s + ']', role.id, false,
+                          { id: 'roles[' + role.id.to_s + ']'} %>
         <% end %>
         </div>
 

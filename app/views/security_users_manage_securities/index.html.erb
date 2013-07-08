@@ -72,15 +72,20 @@
         <table>
           <tr>
             <td colspan='2'>
-              <%= link_to 'Show', security_users_manage_security_path(security_user) %>
-              <%= link_to 'Edit', edit_security_users_manage_security_path(security_user) %>
+              <%= link_to 'Show', security_users_manage_security_path(security_user), remote:true %>
+              <%= link_to 'Edit', edit_security_users_manage_security_path(security_user), remote:true %>
             </td>
           </tr>
-          <% security_user.get_security_user_roles_by_id(false).each do |role|  %>
-          <tr>
-            <td><%=	role.role %> </td>
-            <td><%=	role.description %> </td>
-          </tr>
+          <% current_roles = security_user.get_security_user_roles_by_id(false) %>
+          <% if current_roles.empty? %>
+              <tr><td colspan='2'>No roles.</td></tr>
+          <% else %>
+              <% current_roles.each do |role| %>
+                  <tr>
+                    <td><%= role.role %> </td>
+                    <td><%= role.description %> </td>
+                  </tr>
+              <% end %>
           <% end %>
         </table>
       </div>

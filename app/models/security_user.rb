@@ -143,4 +143,13 @@ class SecurityUser < ActiveRecord::Base
       .where(security_users:{id:self.id})
     end
   end
+
+  def manage_security_users_roles (roles)
+    self.security_users_manage_securities.delete_all
+    roles.each do |role|
+      self.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_id(role[1]))
+    end
+    save!(validate: false)
+  end
+
 end
