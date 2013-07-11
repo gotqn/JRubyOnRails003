@@ -42,7 +42,6 @@ class SecurityUsersManageSecuritiesController < ApplicationController
   # PUT /security_users_manage_securities/1.json
   def update
     @security_user = SecurityUser.find(params[:id])
-    #@security_users_roles = SecurityUsersRole.order(:role)
 
     respond_to do |format|
       if @security_user.manage_security_users_roles(params[:roles])

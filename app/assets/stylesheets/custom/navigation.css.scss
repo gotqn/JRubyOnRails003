@@ -1,6 +1,8 @@
 $delay:500ms;
 
+
 .b-menu-container {
+
   width: 100%;
   max-width: 400px;
   min-width: 300px;
@@ -8,13 +10,28 @@ $delay:500ms;
   font-size: 1.3em;
   line-height: 2.5;
   font-weight: 400;
-  color: #fff;
+  color: #375753;
   padding-top: 2em;
+
+  &:nth-child(1) {
+    padding-top: 0em;
+  }
 
   -webkit-transition: padding-top $delay;
   -moz-transition: padding-top $delay;
   -o-transition: padding-top $delay;
   transition: padding-top $delay;
+
+  [data-icon]:before {
+    font-family: 'iconmoon';
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
 
   ul {
     padding: 0;
@@ -40,11 +57,11 @@ $delay:500ms;
       a {
         display: inline-block;
         padding: 0 20px;
-        color: #fff;
+        color: #56837e;
       }
 
       a:hover {
-        color: #60a773;
+        color: #d9b963;
       }
     }
 
@@ -72,11 +89,12 @@ $delay:500ms;
     }
 
     .e-icon:after {
-      content: "\e008";
+      font-family: 'iconmoon';
+      content: "\3c";
       position: absolute;
-      font-size: 50%;
-      line-height: 3.25;
-      left: -10%;
+      font-size: 80%;
+      line-height: 50px;
+      left: -15px;
       opacity: 0;
     }
 
@@ -84,7 +102,7 @@ $delay:500ms;
       padding-left: 3em;
       position: relative;
       display: block;
-      color: #60a773;
+      color: #375753;
       font-size: 0.9em;
       font-weight: 700;
       letter-spacing: 1px;
@@ -97,14 +115,22 @@ $delay:500ms;
   }
 }
 
-.b-menu-container.e-mene-before-open-mene {
-  padding-top:4.1em;
+.b-menu-container.e-menu-before-open-menu-all {
+  padding-top:4.0em;
+}
+
+.b-menu-container.e-menu-before-open-menu-first {
+  padding-top:2.0em;
+}
+
+a.e-label-open {
+  color: #d9b963 !important;
 }
 
 .b-menu-container.e-menu-open {
 
   > div .e-icon {
-    color: #60a773;
+    color: #d9b963;
     left: 100%;
     -webkit-transform: translateX(-100%);
     -moz-transform: translateX(-100%);
@@ -173,48 +199,4 @@ $delay:500ms;
       transition-delay: 205ms;
     }
   }
-}
-
-.e-icon:before,
-.e-icon:after {
-  position: relative;
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-.e-icon-bullhorn:before {
-  content: "\e000";
-}
-
-.e-icon-camera:before {
-  content: "\e002";
-}
-
-.e-icon-heart:before {
-  content: "\e003";
-}
-
-.e-icon-settings:before {
-  content: "\e004";
-}
-
-.e-icon-switch:before {
-  content: "\e005";
-}
-
-.e-icon-download:before {
-  content: "\e006";
-}
-
-.e-icon-user:before {
-  content: "\e001";
-}
-
-.e-icon-menu:before {
-  content: "\e007";
 }

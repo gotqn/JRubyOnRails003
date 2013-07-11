@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627132503) do
+ActiveRecord::Schema.define(:version => 20130710212138) do
 
   create_table "security_users", :force => true do |t|
     t.string    "email"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20130627132503) do
     t.timestamp "last_log_in_date"
     t.boolean   "is_active"
     t.string    "activation_code"
-    t.string    "language_code"
     t.timestamp "created_at",             :null => false
     t.timestamp "updated_at",             :null => false
     t.string    "captcha"

@@ -5,22 +5,22 @@ class SecurityUser < ActiveRecord::Base
   before_create { generate_token(:auth_token) }
 
   # Model Variables
-  LANGUAGE_CODES = %w[ BG EN RU ]
+  #LANGUAGE_CODES = %w[ BG EN RU ]
 
-  LANGUAGE_DETAILS =  {
-                       BG: {
-                              Name: 'Български',
-                              Flag: ''
-                           },
-                       EN: {
-                              Name: 'English',
-                              Flag: ''
-                           },
-                       RU: {
-                              Name: 'Руский',
-                              Flag: ''
-                           }
-                    }
+  #LANGUAGE_DETAILS =  {
+  #                     BG: {
+  #                            Name: 'Български',
+  #                            Flag: ''
+  #                         },
+  #                     EN: {
+  #                            Name: 'English',
+  #                           Flag: ''
+  #                         },
+  #                     RU: {
+  #                            Name: 'Руский',
+  #                            Flag: ''
+  #                         }
+  #                  }
 
   # Loading custom validators
   require 'lib/email_format_validator'
@@ -34,7 +34,7 @@ class SecurityUser < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :registration_date,
-                  :language_code,
+                  #:language_code,
                   :captcha,
                   :security_users_detail
 
@@ -54,7 +54,7 @@ class SecurityUser < ActiveRecord::Base
   validates :activation_code, length: { is: 64 }, presence: true
   validates :last_log_in_date, date_format:true, presence: true
   validates :registration_date, date_format:true , presence: true
-  validates :language_code, presence: true, inclusion: LANGUAGE_CODES
+  #validates :language_code, presence: true, inclusion: LANGUAGE_CODES
 
   has_secure_password
 
@@ -124,8 +124,13 @@ class SecurityUser < ActiveRecord::Base
 
     if result_text.include? '{first_name}' or result_text.include? '{last_name}'
       security_users_detail = SecurityUsersDetail.find_by_security_user_id(self.id)
-      result_text.sub! '{first_name}', security_users_detail.first_name
-      result_text.sub! '{last_name}', security_users_detail.last_name
+      if security_users_detail.nil?
+        result_text.sub! '{first_name}', 'Unknown'
+        result_text.sub! '{last_name}', 'Unknown'
+      else
+        result_text.sub! '{first_name}', (security_users_detail.first_name.nil? ? 'Unknown': security_users_detail.first_name)
+        result_text.sub! '{last_name}', (security_users_detail.last_name.nil? ? 'Unknown': security_users_detail.last_name)
+      end
     end
 
     result_text
@@ -146,10 +151,17 @@ class SecurityUser < ActiveRecord::Base
 
   def manage_security_users_roles (roles)
     self.security_users_manage_securities.delete_all
-    roles.each do |role|
-      self.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_id(role[1]))
+    unless roles.nil?
+      roles.each do |role|
+        self.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_id(role[1]))
+      end
     end
     save!(validate: false)
+  end
+
+  def manage_default_settings
+    self.send_email_confirmation unless self.is_active == 1
+    self.set_default_relations
   end
 
 end

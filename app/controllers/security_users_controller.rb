@@ -59,16 +59,19 @@ class SecurityUsersController < ApplicationController
     @security_user.activation_code = SecureRandom.hex(32)
     @security_user.registration_date = DateTime.now
     @security_user.last_log_in_date = DateTime.now
-    @security_user.security_users_manage_securities = nil
-    @security_user.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_role('Student'))
+    #@security_user.security_users_manage_securities = nil unless @security_user.security_users_manage_securities.nil?
+    #@security_user.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_role('Student'))
 
     # Internal variables that can be overwritten by authenticated users
     @security_user.is_active ||= 0
-    @security_user.language_code ||= 'EN'
+
+    #@security_user.language_code ||= 'EN'
 
     respond_to do |format|
-      if verify_recaptcha(model: @security_user, attribute:'captcha', message: 'Wrong captcha input.') && @security_user.save
-        @security_user.send_email_confirmation
+      #verify_recaptcha(model: @security_user, attribute:'captcha', message: 'Wrong captcha input.') &&
+      if @security_user.save
+        @security_user.manage_default_settings
+
         format.html { redirect_to @security_user, notice: 'Security user was successfully created.' }
         format.js { @security_user }
         format.json { render json: @security_user, status: :created, location: @security_user }

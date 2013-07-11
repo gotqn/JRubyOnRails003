@@ -1,21 +1,21 @@
 <%= simple_form_for @security_user, validate: true do |f| %>
-
-    <%= f.input :email, label: 'Email' %>
-    <%= f.input :password, label: 'Password' %>
-    <%= f.input :password_confirmation, label: 'Confirm Password' %>
+    <%= debug @security_user %>
+    <%= debug params %>
+    <%= f.input :email, label: 'Email',
+                label_html: { 'data-icon' => 'm'},
+                input_html: { placeholder:'mysupermail@mail.com'} %>
+    <%= f.input :password, label: 'Password',
+                label_html: { 'data-icon' => 'l' },
+                input_html: { placeholder:'eg. X8df!90EO'} %>
+    <%= f.input :password_confirmation, label: 'Confirm Password',
+                label_html: { 'data-icon' => 'l' },
+                input_html: { placeholder:'eg. X8df!90EO'} %>
 
     <%= f.input :is_active, label: 'Skip registration email confirmation',
-                hint: 'If not skipped, the account is created as disabled and is activated by email',
+                hint: 'If not skipped, the account is created as disabled and is activated by email confirmation',
                 input_html: { checked: true } %>
 
-    <%= f.input :language_code, collection: Hash[SecurityUser::LANGUAGE_DETAILS.map{|k, h| [k, h[:Name]]}],
-                label_method: :last,
-                value_method: :first,
-                checked: 'EN',
-                as: :radio_buttons,
-                label: 'Choose language' %>
-
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Create' %>
 
 <% end %>
 

@@ -34,8 +34,8 @@ class SecurityUsersDetail < ActiveRecord::Base
     (self.security_user_id == security_user_id) ? result_text = text_on_true : result_text = text_on_false
 
     if result_text.include? '{first_name}' or result_text.include? '{last_name}'
-      result_text.sub! '{first_name}', self.first_name
-      result_text.sub! '{last_name}', self.last_name
+      result_text.sub! '{first_name}', self.first_name.nil? ? 'Unknown': self.first_name
+      result_text.sub! '{last_name}', self.last_name.nil? ? 'Unknown': self.last_name
     end
 
     result_text
