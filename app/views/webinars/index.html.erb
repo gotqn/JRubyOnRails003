@@ -2,7 +2,7 @@
 
 <%= simple_form_for :search, url: webinars_path, method: 'get' do |f| %>
     <%= f.input :search_name,
-                label: 'Title',
+                label: 'Title',  label_html: { 'data-icon' => 't'} ,
                 input_html: { value: params[:search] ? params[:search][:search_name]: nil,
                               data: {autocomplete_source: Webinar.order(:name).map(&:name)}},
                 required: false %>

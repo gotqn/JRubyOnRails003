@@ -162,6 +162,9 @@ class SecurityUser < ActiveRecord::Base
   def manage_default_settings
     self.send_email_confirmation unless self.is_active == 1
     self.set_default_relations
+    #self.security_users_manage_securities = nil
+    self.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_role('Student'))
+    self.save!(validate: false)
   end
 
 end

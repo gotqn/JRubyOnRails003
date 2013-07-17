@@ -30,5 +30,23 @@ $(document).ready ->
 
   )()
 
+  $('a[href="#tologin"]').on "click", ->
+    $("#error_captcha").html("").hide()
+    $("#error_user_email").html("").hide()
+    $("#error_user_password").html("").hide()
+    $("#error_user_password_confirmation").html("").hide()
+
+  $('a[href="#toregister"]').on "click", ->
+    $(".b-session-notice").html ""
+    $("#session_email").val ""
+    $("#session_password").val ""
+    $('#security_user_email').val ""
+    $('#security_user_password').val ""
+    $('#security_user_password_confirmation').val ""
+    $('#recaptcha_response_field').val ""
+    $('.error').remove()
+
+
+
 
 

@@ -68,8 +68,8 @@ class SecurityUsersController < ApplicationController
     #@security_user.language_code ||= 'EN'
 
     respond_to do |format|
-      #verify_recaptcha(model: @security_user, attribute:'captcha', message: 'Wrong captcha input.') &&
-      if @security_user.save
+      #
+      if (params[:skip_captcha] || verify_recaptcha(model: @security_user, attribute:'captcha', message: 'Wrong captcha input.') ) && @security_user.save
         @security_user.manage_default_settings
 
         format.html { redirect_to @security_user, notice: 'Security user was successfully created.' }

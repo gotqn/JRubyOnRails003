@@ -1,7 +1,7 @@
 <%= simple_form_for @webinar, validate: true, url: @form_action_url, remote: true do |f| %>
 
-    <%= f.input :name, label: 'Title', hint: 'Video name displayed in the webinars gallery' %>
-    <%= f.input :summary, label: 'Summary notes', as: :text %>
+    <%= f.input :name, label: 'Title', label_html: { 'data-icon' => 't'},hint: 'Video name displayed in the webinars gallery' %>
+    <%= f.input :summary, label: 'Summary notes',label_html: { 'data-icon' => ')'}, as: :text %>
     <%= f.input :access_type, collection: Webinar::ACCESS_TYPES_MESSAGES.first(3),
                 label_method: :last,
                 value_method: :first,

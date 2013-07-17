@@ -15,6 +15,10 @@
                 hint: 'If not skipped, the account is created as disabled and is activated by email confirmation',
                 input_html: { checked: true } %>
 
+    <input checked='checked' class='hidden'
+           id='skip_captcha' name='[skip_captcha]'
+           type='checkbox' value='1'>
+
     <%= f.button :submit, 'Create' %>
 
 <% end %>
