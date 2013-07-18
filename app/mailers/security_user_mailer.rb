@@ -14,4 +14,9 @@ class SecurityUserMailer < ActionMailer::Base
     mail to: security_user.email, subject: 'Account Created'
   end
 
+  def issue_notification(issue)
+    @issue = issue
+    mail to: 'george_27@abv.bg', subject: 'Issue instantiated'
+  end
+
 end

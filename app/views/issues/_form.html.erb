@@ -1,0 +1,19 @@
+<%= simple_form_for @issue, validate: true, remote:true do |f| %>
+
+    <%= f.input :title, label: 'Title', label_html: { 'data-icon' => 't'} %>
+    <%= f.input :description, label: 'Description',label_html: { 'data-icon' => ')'}, as: :text,
+                hint: 'Short description of your issue or request.' %>
+    <%= f.input :instantiated_by, label: 'Your name', label_html: { 'data-icon' => 'u'} %>
+    <%= f.input :contacts, label: 'Your mail', label_html: { 'data-icon' => 'm'} %>
+
+    <% if @mode == 'edit'%>
+        <%= f.input :is_proceed, label: 'Issue or request is handled' %>
+        <%= f.button :submit, 'Update' %>
+    <% else %>
+        <%= f.button :submit, 'Send' %>
+    <% end %>
+
+<% end %>
+
+
+

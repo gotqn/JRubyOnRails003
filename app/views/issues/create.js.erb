@@ -1,0 +1,90 @@
+
+var current_errors = <%=  raw @issue.errors.to_json %>;
+var errors_counter = 0;
+
+var error_contacts = $('#error_contacts');
+var error_description =  $('#error_description');
+var error_instantiated_by = $('#error_instantiated_by');
+var error_title = $('#error_title');
+
+
+// Clearing previous errors messages and hiding the containers
+$(error_contacts).html('').hide();
+$(error_description).html('').hide();
+$(error_instantiated_by).html('').hide();
+$(error_title).html('').hide();
+
+// Checking for current errors
+for(var error in current_errors) {
+
+    switch(error) {
+
+        case 'contacts': {
+
+            if($(error_contacts).length == 0) {
+                $('<span class="error" id="error_contacts">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_issue #issue_contacts');
+            }else {
+                $(error_contacts).html(current_errors[error][0]);
+                $(error_contacts).show();
+            }
+
+            break;
+        }
+        case 'description': {
+
+            if($(error_description).length == 0) {
+                $('<span class="error" id="error_description">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_issue #issue_description');
+            }else {
+                $(error_description).html(current_errors[error][0]);
+                $(error_description).show();
+            }
+
+            break;
+        }
+        case 'instantiated_by': {
+
+            if($(error_instantiated_by).length == 0) {
+                $('<span class="error" id="error_instantiated_by">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_issue #issue_instantiated_by');
+            }else {
+                $(error_instantiated_by).html(current_errors[error][0]);
+                $(error_instantiated_by).show();
+            }
+
+            break;
+        }
+        case 'title': {
+
+            if($(error_title).length == 0) {
+                $('<span class="error" id="error_title">'+current_errors[error]+'</span>')
+                        .insertAfter('#new_issue #issue_title');
+            }else {
+                $(error_title).html(current_errors[error][0]);
+                $(error_title).show();
+            }
+
+            break;
+        }
+
+    }
+
+    errors_counter++;
+}
+
+// Rendering instruction message and clearing the form
+if(errors_counter == 0) {
+
+    var content_html = [];
+    var footer_html = [];
+
+    content_html.push('<h1 class="sub-title">Issue Send Successfully</h1>');
+    content_html.push('You will be contact in 24 hours.');
+
+    footer_html.push('<%=j link_to 'Back to Gallery', webinars_path, remote:true %>');
+
+    $('.b-content-container-content').html(content_html.join(''));
+    $('.b-content-container-footer').html(footer_html.join(''));
+}
+

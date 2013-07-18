@@ -1,0 +1,31 @@
+<h1 class='sub-title'>Issue Details</h1>
+
+<table class='b-issues'>
+  <tr>
+    <td>Title:</td>
+    <td><%= @issue.title %></td>
+  </tr>
+  <tr>
+    <td>Description:</td>
+    <td><%= @issue.description %></td>
+  </tr>
+  <tr>
+    <td>Instantiated by:</td>
+    <td><%= @issue.instantiated_by %></td>
+  </tr>
+  <tr>
+    <td>Contacts:</td>
+    <td><%= @issue.contacts %></td>
+  </tr>
+  <tr>
+    <td>Is proceed:</td>
+    <td><%= @issue.is_proceed %></td>
+  </tr>
+  <tr>
+    <td colspan='2'><%= link_to 'Edit', edit_issue_path(@issue) %></td>
+  </tr>
+</table>
+
+<% content_for :footer do%>
+    <%= link_to 'Back to Issues', issues_path, remote:true %>
+<% end %>

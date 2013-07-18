@@ -1,0 +1,82 @@
+<h1 class='sub-title'>Issue List</h1>
+
+<div class='b-search-container'>
+  <%= search_form_for @search, url: search_issues_path, method: :post, remote:true do |f| %>
+
+      <div class='text'>
+        <%= f.label :title_cont, 'Title contains', 'data-icon' => 't'%>
+        <%= f.text_field :title_cont %>
+      </div>
+
+      <div class='text'>
+        <%= f.label :contacts_cont, 'Email', 'data-icon' => 'm'%>
+        <%= f.text_field :contacts_cont %>
+      </div>
+
+      <div class='radio'>
+        <%= f.label :is_proceed_true, 'Is active' %>
+        <%= f.check_box :is_proceed_true, 'data-group' => 'radio'%>
+        <%= f.label :is_proceed_false, 'Is not active' %>
+        <%= f.check_box :is_proceed_false, 'data-group' => 'radio' %>
+      </div>
+
+      <div class='text-date'>
+        <table>
+          <tr>
+            <td>
+              <%= f.label :created_at_gteq, 'Registration', 'data-icons' => '*' %>
+              <%= f.text_field :created_at_gteq, placeholder:'Start Date', class:'b-date-picker' %>
+            </td>
+            <td>
+              <%= f.label :created_at_lteq, 'Registration' %>
+              <%= f.text_field :created_at_lteq, placeholder:'End Date', class:'b-date-picker' %>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='button'>
+        <%= f.submit 'Search' %>
+      </div>
+
+      <div class='button'>
+        <input name="commit" type="button" value="Clear" class="e-clear-form">
+      </div>
+
+  <% end %>
+</div>
+
+<div id='issues-accordion'>
+
+  <% @issues.each do |issue| %>
+
+      <h3 id='issues-header-<%= issue.id %>'><%= issue.title %></h3>
+
+      <div>
+        <table>
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+              <%= link_to 'Show', issue, remote:true %>
+              <%= link_to 'Edit', edit_issue_path(issue), remote:true %>
+              <%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }, remote:true %>
+            </td>
+          </tr>
+
+          <tr><td>Date Instantiate</td><td><%= issue.created_at.to_formatted_s(:long_ordinal) %></td></tr>
+          <tr><td>Instantiate By</td><td><%= issue.instantiated_by %></td></tr>
+          <tr><td>Email</td><td><%= issue.contacts %></td></tr>
+          <tr><td>Description</td><td><%= issue.description %></td></tr>
+          <tr><td>Is proceed</td><td><%= issue.is_proceed %></td></tr>
+        </table>
+      </div>
+
+  <% end %>
+
+</div>
+
+<% content_for :footer do %>
+    <%= link_to 'Back to Gallery', webinars_path, remote: true %>
+<% end %>
+
+

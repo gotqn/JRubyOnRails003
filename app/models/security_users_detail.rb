@@ -20,13 +20,14 @@ class SecurityUsersDetail < ActiveRecord::Base
   belongs_to :security_user
 
   # Validations
-  validates :egn, length: { is: 10 } , presence: true
-  validates :faculty_number, length: { is: 6 }, presence: true
-  validates :first_name, length: { in: 2..128}, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: 'Only letters allowed' }
-  validates :last_name, length: { in: 2..128}, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: 'Only letters allowed' }
+  validates :egn, length: { is: 10 } , presence: true, format: { with: /\A[0-9]+\z/, message: 'Only numbers allowed' }
+  validates :faculty_number, length: { is: 6 }, presence: true, format: { with: /\A[0-9]+\z/, message: 'Only numbers allowed' }
+  validates :first_name, length: { in: 2..32}, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: 'Only letters allowed' }
+  validates :last_name, length: { in: 2..32}, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: 'Only letters allowed' }
   validates :gender, presence:true, inclusion: GENDER_TYPES
-  validates :gsm, length: { in: 2..16}, format: { with: /\A[0-9]+\z/, message: 'Only numbers allowed' }
-  validates :skype, length: { in: 2..128}
+  validates :gsm, length: { in: 2..16}
+  validates :skype, length: { in: 2..32}
+  validates :city, format: { with: /\A[a-zA-Z]+\z/, message: 'Only letters allowed' }
 
   # Methods
   def is_profile_mine (security_user_id, text_on_true, text_on_false)

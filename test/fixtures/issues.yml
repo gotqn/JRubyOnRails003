@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyString
+  contacts: MyString
+  instantiated_by: MyString
+  is_proceed: false
+
+two:
+  title: MyString
+  description: MyString
+  contacts: MyString
+  instantiated_by: MyString
+  is_proceed: false

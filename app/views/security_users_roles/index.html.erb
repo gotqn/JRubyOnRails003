@@ -39,11 +39,16 @@
 
                  <% security_users.each do |security_user| %>
 
+                     <%
+                        current_first_name = security_user.security_users_detail.first_name.nil? ? '': security_user.security_users_detail.first_name
+                        current_last_name = security_user.security_users_detail.last_name.nil? ? '': security_user.security_users_detail.last_name
+                     %>
+
                      <%= link_to security_user.email,
                                  security_users_detail_path(security_user.security_users_detail),
                                  class:'user-tooltip',
                                  target: '_blank',
-                                 title: security_user.security_users_detail.first_name + ' ' + security_user.security_users_detail.last_name %>
+                                 title: current_first_name + ' ' + current_last_name %>
 
                  <% end %>
 

@@ -2,6 +2,7 @@ $(document).ready ->
   Webinars.Functions.Initialize.Search()
   Webinars.Functions.Initialize.Video()
 
+
 if typeof Webinars is "undefined"
   Webinars =
     Variables: {}

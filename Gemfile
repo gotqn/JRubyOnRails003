@@ -36,6 +36,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 
 gem 'ransack'
 
+#gem 'jquery-fileupload-rails'
 
 #gem 'rvideo'
 #gem 'flvtool2'

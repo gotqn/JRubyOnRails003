@@ -1,0 +1,11 @@
+var content_html = [];
+var footer_html = [];
+
+content_html.push('<%= j render template:'issues/show.html.erb', collection:@issue %>');
+
+footer_html.push('<%= j link_to 'Back to Issues', issues_path, remote:true %>');
+
+$('.b-content-container-content').html(content_html.join(''));
+$('.b-content-container-footer').html(footer_html.join(''));
+
+

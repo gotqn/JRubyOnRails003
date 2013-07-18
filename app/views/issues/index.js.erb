@@ -1,0 +1,61 @@
+$('.b-content-container-content').html("<%=j render template:'issues/index.html.erb', collection:@security_users %>");
+
+$(document).ready(function() {
+
+    $('.b-date-picker').datepicker({
+        dateFormat: 'yy-mm-dd',
+        onSelect: function(date) {
+            if ($(this).attr('name').indexOf('gteq') > 0) {
+                $(this).parent().next().find('input').datepicker('option', 'minDate', date);
+            } else {
+                $(this).parent().prev().find('input').datepicker('option', 'maxDate', date);
+            }
+        }
+    });
+
+    $('#issues-accordion').accordion({
+        collapsible: true,
+        active: false,
+        icons: {
+            header: 'ui-icon-plus',
+            activeHeader: 'ui-icon-minus'
+        }
+    });
+
+    $(".b-search-container input:checkbox").click(function() {
+        var group;
+        group = "input:checkbox[data-group='" + $(this).attr("data-group") + "']";
+        $(group).prop("checked", false);
+        $(this).prop("checked", true);
+    });
+
+    (function(){
+        $('.b-date-picker').each(function(){
+            if($(this).val().length>10){
+                $(this).datepicker( "option", "dateFormat", "yy-mm-dd" );
+            }
+
+            if ($(this).attr('name').indexOf('gteq') > 0) {
+                $(this).parent().next().find('input').datepicker('option', 'minDate', $(this).val().substring(0,10));
+            } else {
+                $(this).parent().prev().find('input').datepicker('option', 'maxDate', $(this).val().substring(0,10));
+            }
+        });
+    }());
+
+    $('.e-clear-form').on('click',function(){
+
+        var form = $(this).closest('form');
+
+        $(form).find('input:text').val('');
+        $(form).find('input:checkbox').prop('checked',false);
+    });
+});
+
+var footer_html = [];
+footer_html.push('<%=j link_to 'Back to Gallery', webinars_path, remote: true %>');
+$('.b-content-container-footer').html(footer_html.join(''));
+
+
+
+

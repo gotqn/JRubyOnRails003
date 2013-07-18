@@ -5,16 +5,26 @@ Beta::Application.routes.draw do
       match 'search' => 'security_users_manage_securities#index', via: [:get, :post]
     end
   end
+
   resources :security_users_roles
   resources :security_users_details, only: [:show, :edit, :update ]
+
   resources :security_users do
     collection do
       match 'search' => 'security_users#index', via: [:get, :post]
     end
   end
+
   resources :webinars
   resources :sessions
   resources :password_resets
+
+  resources :issues do
+    collection do
+      match 'search' => 'issues#index', via: [:get, :post]
+    end
+  end
+
 
   match '/security_users/:security_user_id/email_confirmation/:activation_code' => 'email_confirmation#update'
 

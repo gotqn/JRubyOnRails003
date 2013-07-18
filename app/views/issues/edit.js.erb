@@ -1,0 +1,13 @@
+var content_html = [];
+var footer_html = [];
+
+content_html.push('<h1 class="sub-title">Edit Issue</h1>');
+content_html.push('<%=j render 'issues/form' %>');
+
+footer_html.push('<%= j link_to 'Back to Issues', issues_path, remote:true %>');
+
+$('.b-content-container-content').html(content_html.join(''));
+$('.b-content-container-footer').html(footer_html.join(''));
+
+$('.b-content-container-content form').enableClientSideValidations();
+
