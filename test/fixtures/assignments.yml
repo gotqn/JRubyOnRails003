@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subject: MyString
+  technologies: MyString
+  description: MyString
+  status: MyString
+  type: 
+  is_disabled: false
+
+two:
+  subject: MyString
+  technologies: MyString
+  description: MyString
+  status: MyString
+  type: 
+  is_disabled: false

@@ -122,6 +122,18 @@
       outline:none;
       background: #FFFFFF;
       padding: 9px 0px 9px 25px;
+
+      &.prompt_option{
+        color: #C2BECA;
+      }
+
+      &.prompt_option:acitve{
+        color: red;
+      }
+    }
+
+    select.prompt_option:acitve{
+      color: red !important;
     }
   }
 
@@ -230,6 +242,7 @@ form.default {
       input {
         cursor: pointer;
         float: left;
+        margin-top: 5px;
       }
     }
   }

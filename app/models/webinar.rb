@@ -14,7 +14,7 @@ class Webinar < ActiveRecord::Base
                                      thumb: { geometry: '200x125#', format: 'jpg', time:10 } },
                     processors: [:ffmpeg],
                     url: '/webinars/:id/:style/:basename.:extension',
-                    path: ":rails_root/public/webinars/:id/:style/:basename.:extension"
+                    path: ':rails_root/public/webinars/:id/:style/:basename.:extension'
 
   # Relationships
   # has_one :secutity_users

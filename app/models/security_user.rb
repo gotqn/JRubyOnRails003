@@ -42,6 +42,8 @@ class SecurityUser < ActiveRecord::Base
   has_one :security_users_detail, dependent: :destroy
   has_many :security_users_manage_securities
   has_many :security_users_roles, through: :security_users_manage_securities
+  has_many :security_users_assignments
+  has_many :assignments, through: :security_users_assignments
 
   # Access to other relationships models' fields
   accepts_nested_attributes_for :security_users_roles
@@ -165,6 +167,10 @@ class SecurityUser < ActiveRecord::Base
     #self.security_users_manage_securities = nil
     self.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_role('Student'))
     self.save!(validate: false)
+  end
+
+  def is_security_user_instructor
+    !self.security_users_roles.find_by_role('Instructor').nil?
   end
 
 end

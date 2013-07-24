@@ -18,7 +18,7 @@ roles = {
 
     Translator: 'Grants access to globalization management tools.',
 
-    Teacher: 'Supervisor of students. Grants access to all advanced diploma process assignment tools.',
+    Instructor: 'Supervisor of students. Grants access to all advanced diploma process assignment tools.',
     Student: 'Default user role for each user created by sign-in interface.'
 }
 

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718195550) do
+ActiveRecord::Schema.define(:version => 20130724204700) do
+
+  create_table "assignments", :force => true do |t|
+    t.string    "subject"
+    t.string    "technologies"
+    t.string    "description"
+    t.string    "status"
+    t.string    "type"
+    t.boolean   "is_disabled"
+    t.timestamp "created_at",   :null => false
+    t.timestamp "updated_at",   :null => false
+  end
 
   create_table "issues", :force => true do |t|
     t.string    "title"
@@ -37,6 +48,16 @@ ActiveRecord::Schema.define(:version => 20130718195550) do
     t.string    "password_reset_token"
     t.timestamp "password_reset_sent_at"
   end
+
+  create_table "security_users_assignments", :id => false, :force => true do |t|
+    t.string  "role"
+    t.integer "security_user_id"
+    t.integer "assignment_id"
+    t.boolean "is_disabled"
+  end
+
+  add_index "security_users_assignments", ["assignment_id"], :name => "index_security_users_assignments_on_assignment_id"
+  add_index "security_users_assignments", ["security_user_id"], :name => "index_security_users_assignments_on_security_user_id"
 
   create_table "security_users_details", :force => true do |t|
     t.string    "faculty_number"

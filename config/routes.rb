@@ -25,6 +25,8 @@ Beta::Application.routes.draw do
     end
   end
 
+  resources :assignments
+
 
   match '/security_users/:security_user_id/email_confirmation/:activation_code' => 'email_confirmation#update'
 

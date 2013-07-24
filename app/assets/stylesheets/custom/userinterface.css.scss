@@ -29,3 +29,129 @@ div.ui-datepicker {
   font-size:12px;
 }
 
+
+
+
+#assignment-tabs{
+  padding:0px;
+  background:none;
+  border:none;
+}
+
+.ui-tabs .ui-tabs-panel{
+  height:auto;
+  overflow:hidden;
+  padding-left:0px;
+  padding-right:0px;
+  width:700px;
+  min-height:250px;
+}
+
+.ui-widget {
+
+  font-family: 'RobotoCondensed', Calibri, Arial, sans-serif !important;
+
+  & label {
+    font-size: 16px !important;
+  }
+
+  & input {
+    &.string {
+      font-size: 13px !important;
+    }
+    &.bnt {
+      font-size: 15px !important;
+    }
+  }
+
+  & textarea {
+    font-size: 13px !important;
+  }
+
+  & select {
+    font-size: 13px !important;
+  }
+}
+
+
+#assignment-tabs {
+
+  &.ui-tabs {
+    .ui-tabs-panel {
+      padding-left: 0px !important;
+    }
+  }
+
+}
+
+#assignment-tabs .ui-tabs-nav{
+
+  padding-top:0px;
+  padding-left:0px;
+
+  background:none;
+
+  border-top:none;
+  border-right:none;
+  border-left:none;
+
+  border-radius:0px;
+  -moz-border-radius:0px;
+  -webkit-border-radius:0px;
+
+  border-color:lightgray;
+
+  text-transform:uppercase;
+}
+
+
+#assignment-tabs {
+
+  .ui-tabs-nav li {
+
+    border-color: #b2b2b2;
+    font-family:'RobotoCondensed',Arial,Helvetica,sans-serif;
+    font-weight:bold;
+    font-size:14px;
+
+    background-color:#D0CECF;
+    height:42px;
+    margin: 1px 10px 0 0;
+    padding-top: 1px !important;
+  }
+
+  .ui-state-default {
+
+    a {
+      background-color:#E0E4ED;
+      color: #375753;
+      padding:11px 10px;
+      font-family:'RobotoCondensed',Arial,Helvetica,sans-serif;
+      font-weight:bold;
+      font-size:14px;
+    }
+
+    &.ui-state-hover a {
+      background-color:#F7F7F7;
+      color: #d9b963;
+      padding:12px 10px;
+    }
+
+    &.ui-state-active a {
+      color: #375753;
+    }
+  }
+
+  .ui-state-active a{
+    background-color:#F7F7F7;
+    color: #375753;
+    padding: 12px 10px;
+    font-family:'RobotoCondensed',Arial,Helvetica,sans-serif;
+    font-weight:bold;
+    font-size: 14px;
+  }
+
+  li a{
+    outline-color: transparent;
+  }
+}
