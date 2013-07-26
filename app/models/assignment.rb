@@ -28,4 +28,23 @@ class Assignment < ActiveRecord::Base
   validates :technologies, presence: true, length: { in: 32..128}
   validates :description, presence: true, length: { in: 32..512}
 
+  # Methods
+  def instantiate_private(student_id, student_view, instructor_id, instructor_view)
+    status = {}
+    if SecurityUser.exists?(student_id) and SecurityUser.exists?(instructor_id)
+      self.security_users_assignments.build(security_user:SecurityUser.find_by_id(student_id),
+                                            role:'student',
+                                            is_disabled:student_view)
+      self.security_users_assignments.build(security_user:SecurityUser.find_by_id(instructor_id),
+                                            role:'instructor',
+                                            is_disabled:instructor_view)
+    else
+    #self.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_id(role[1]))
+    end
+  end
+
+  def instantiate_public(student_id, student_view, instructor_id, instructor_view)
+
+  end
+
 end
