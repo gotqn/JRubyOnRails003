@@ -27,7 +27,7 @@ class SecurityUsersDetail < ActiveRecord::Base
   validates :gender, presence:true, inclusion: GENDER_TYPES
   validates :gsm, length: { in: 2..16}
   validates :skype, length: { in: 2..32}
-  validates :city, format: { with: /\A[a-zA-Z]+\z/, message: 'Only letters allowed' }
+  validates :city, format: { with: /\A[a-zA-Z\s]+\z/, message: 'Only letters and blank spaces allowed' }, allow_blank:true
 
   # Methods
   def is_profile_mine (security_user_id, text_on_true, text_on_false)

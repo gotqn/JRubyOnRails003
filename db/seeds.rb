@@ -125,7 +125,7 @@ users.each do |user, data|
   security_user.registration_date = DateTime.now
   security_user.last_log_in_date = DateTime.now
   security_user.is_active = 1
-  security_user.language_code = 'EN'
+  #security_user.language_code = 'EN'
 
   unless SecurityUser.where(email: security_user.email).exists?
 
