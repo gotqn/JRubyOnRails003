@@ -22,3 +22,15 @@ $(document).ready ->
     $(this).removeClass "prompt_option"
 
   $("select.prompt").change()
+
+  $("#assignments-accordion").accordion
+    collapsible: true
+    active: false
+    icons:
+      header: "ui-icon-plus"
+      activeHeader: "ui-icon-minus"
+
+  $('#assignments-accordion .user-tooltip').tooltip
+    track: true
+    tooltipClass: 'user-tooltip-default'
+

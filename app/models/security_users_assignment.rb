@@ -4,7 +4,8 @@ class SecurityUsersAssignment < ActiveRecord::Base
 
   # Accessible columns
   attr_accessible :role,
-                  :is_disabled
+                  :is_disabled,
+                  :security_user
 
   # Relationships
   belongs_to :security_user

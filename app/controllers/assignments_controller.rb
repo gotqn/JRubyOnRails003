@@ -2,7 +2,8 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
-    @assignments = Assignment.all
+    @render_mode = params[:render_mode]
+    @assignments = Assignment.new.get_assignments_by_render_mode(@render_mode, current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,29 +27,26 @@ class AssignmentsController < ApplicationController
   def new
     @assignment = Assignment.new
 
-    params = {}
+    has_security_access = true
 
-    if current_user.is_security_user_instructor
-      SecurityUsersRole.find_by_role('Student').get_security_users_by_role.each do |security_user|
-        security_users_details = security_user.get_security_user_details
-        unless security_users_details.nil? or security_users_details.first_name.nil? or security_users_details.last_name.nil?
-          params[security_user.id] = security_users_details.first_name + ' ' + security_users_details.last_name
-        end
-      end
-      @render = { mode: 'instructor', params: params}
-    else
-      SecurityUsersRole.find_by_role('Instructor').get_security_users_by_role.each do |security_user|
-        security_users_details = security_user.get_security_user_details
-        unless security_users_details.nil? or security_users_details.first_name.nil? or security_users_details.last_name.nil?
-          params[security_user.id] = security_users_details.first_name + ' ' + security_users_details.last_name
-        end
-      end
-      @render = { mode: 'student', params: params}
+    case current_user.get_assignment_access
+      when 'manager'
+        @render_params = { mode: 'manager', params: SecurityUsersRole.get_users_names_by_roles(['Student','Instructor']) }
+      when 'instructor'
+        @render_params = { mode: 'instructor', params: SecurityUsersRole.get_users_names_by_roles(['Student']) }
+      when 'student'
+        @render_params = { mode: 'student', params: SecurityUsersRole.get_users_names_by_roles(['Instructor']) }
+      else
+        has_security_access = false
     end
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @assignment }
+      if has_security_access
+        format.html # new.html.erb
+        format.json { render json: @assignment }
+      else
+        # rendered system message for no access
+      end
     end
   end
 
@@ -61,32 +59,26 @@ class AssignmentsController < ApplicationController
   # POST /assignments.json
   def create
 
-    #@assignment = Assignment.new(params[:assignment])
-
     @assignment = Assignment.new
 
-    @assignment.subject = params[:assignment][:subject]
-    @assignment.technologies = params[:assignment][:technologies]
-    @assignment.description = params[:assignment][:description]
-    @assignment.type = 'private'
-    @assignment.status = 'ongoing'
-    @assignment.is_disabled = 0
-
-
-
-
     if current_user.is_security_user_instructor
-
+      if params.has_key?(:security_users) and  params[:security_users].has_key?(:student_id)
+        result = @assignment.instantiate_private(params[:security_users][:student_id],1,current_user.id,0,params[:assignment],1)
+      else
+        result = @assignment.instantiate_public(current_user.id,params[:assignment])
+      end
     else
-
+      result = @assignment.instantiate_private(current_user.id,0,params[:security_users][:instructor_id],1,params[:assignment],0)
     end
 
-
     respond_to do |format|
-      if @assignment.save
+      if result[:status] == 'ok' and @assignment.save
         format.html { redirect_to @assignment, notice: 'Assignment was successfully created.' }
         format.json { render json: @assignment, status: :created, location: @assignment }
       else
+        @render_params = result[:render_params]
+        @assignment.errors.add(:base, result[:message]) unless result[:status] == 'ok'
+
         format.html { render action: 'new' }
         format.json { render json: @assignment.errors, status: :unprocessable_entity }
       end
@@ -103,7 +95,7 @@ class AssignmentsController < ApplicationController
         format.html { redirect_to @assignment, notice: 'Assignment was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @assignment.errors, status: :unprocessable_entity }
       end
     end

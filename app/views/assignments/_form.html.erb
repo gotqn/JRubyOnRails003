@@ -1,4 +1,26 @@
-<% case @render[:mode] %>
+<% case @render_params[:mode] %>
+    <% # rendering form for manager %>
+    <% when 'manager' %>
+
+        <div id='assignment-tabs'>
+          <ul>
+            <li><a href='#assignment-tab-public'>Open Opportunity</a></li>
+            <li><a href='#assignment-tab-private-to-student'>Personal Assignment (to student)</a></li>
+            <li><a href='#assignment-tab-private-to-instructor'>Personal Assignment (to instructor)</a></li>
+          </ul>
+          <div id='assignment-tab-public'>
+            <%= render partial: 'assignments/new_by_instructor_public', locals: { assignemnt: @assignment } %>
+          </div>
+          <div id='assignment-tab-private-to-student'>
+            <%= render partial: 'assignments/new_by_instructor_private', locals: { assignemnt: @assignment,
+                                                                                   render_params: @render_params[:params][:Instructor]} %>
+          </div>
+          <div id='assignment-tab-private-to-instructor'>
+            <%= render partial: 'assignments/new_by_student_private', locals: { assignemnt: @assignment,
+                                                                                   render_params: @render_params[:params][:Student]} %>
+          </div>
+        </div>
+
     <% # rendering form for instructor %>
     <% when 'instructor' %>
 
@@ -8,89 +30,16 @@
             <li><a href='#assignment-tab-private'>Personal Assignment</a></li>
           </ul>
           <div id='assignment-tab-public'>
-            <%= simple_form_for @assignment, validate:true do |f| %>
-
-                <%= f.input :subject,
-                            label_html: { 'data-icon' => '!'},
-                            input_html: { placeholder:'CMS - Content Management System'} %>
-                <%= f.input :technologies, as: :text,
-                            hint: 'Technologies in CSV list (Comma-separated values)',
-                            label_html: { 'data-icon' => '!'},
-                            input_html: { placeholder:'T-SQL, C#, HTML5, CSS3, JavaScript, MS Server 2012'} %>
-                <%= f.input :description, as: :text,
-                            hint:' Short description of the project',
-                            label_html: { 'data-icon' => '!'},
-                            input_html: { placeholder:'Web-based "Content Management System" that allows publishing, editing and modifying content as well as maintenance from a central interface.'} %>
-
-                <%= f.button :submit %>
-
-            <% end %>
+            <%= render partial: 'assignments/new_by_instructor_public', locals: { assignemnt: @assignment } %>
           </div>
           <div id='assignment-tab-private'>
-            <%= simple_form_for @assignment, validate:true do |f| %>
-
-                <%= f.input :subject,
-                            label_html: { 'data-icon' => '!'},
-                            input_html: { placeholder:'CMS - Content Management System'} %>
-                <%= f.input :technologies, as: :text,
-                            hint: 'Technologies in CSV list (Comma-separated values)',
-                            label_html: { 'data-icon' => '!'},
-                            input_html: { placeholder:'T-SQL, C#, HTML5, CSS3, JavaScript, MS Server 2012'} %>
-                <%= f.input :description, as: :text,
-                            hint:' Short description of the project',
-                            label_html: { 'data-icon' => '!'},
-                            input_html: { placeholder:'Web-based "Content Management System" that allows publishing, editing and modifying content as well as maintenance from a central interface.'} %>
-
-                <%= simple_form_for :security_users do |nf| %>
-                    <%= nf.input :instructor_id, collection: @render[:params], label: 'Assign to student',
-                                 label_method: :last,
-                                 value_method: :first,
-                                 prompt: 'Select project student',
-                                 input_html: { class: 'prompt' },
-                                 label_html: { 'data-icon' => '!'}
-                    %>
-                    <%= f.button :submit %>
-                <% end %>
-
-            <% end %>
+            <%= render partial: 'assignments/new_by_instructor_private', locals: { assignemnt: @assignment,
+                                                                                   render_params: @render_params[:params][:Instructor]} %>
           </div>
         </div>
 
     <% # rendering form for student %>
-    <% when 'student' %>
-
-        <%= simple_form_for @assignment, validate:true do |f| %>
-
-            <%= f.input :subject,
-                        label_html: { 'data-icon' => '!'},
-                        input_html: { placeholder:'CMS - Content Management System'} %>
-            <%= f.input :technologies, as: :text,
-                        hint: 'Technologies in CSV list (Comma-separated values)',
-                        label_html: { 'data-icon' => '!'},
-                        input_html: { placeholder:'T-SQL, C#, HTML5, CSS3, JavaScript, MS Server 2012'} %>
-            <%= f.input :description, as: :text,
-                        hint:' Short description of the project',
-                        label_html: { 'data-icon' => '!'},
-                        input_html: { placeholder:'Web-based "Content Management System" that allows publishing, editing and modifying content as well as maintenance from a central interface.'} %>
-
-            <%= simple_form_for :security_users do |nf| %>
-                <%= nf.input :instructor_id, collection: @render[:params], label: 'Assign to instructor',
-                            label_method: :last,
-                            value_method: :first,
-                            prompt: 'Select project instructor',
-                            input_html: { class: 'prompt' },
-                            label_html: { 'data-icon' => '!'}
-                %>
-            <%= f.button :submit %>
-            <% end %>
-
-        <% end %>
-
-    <% # rendering default form %>
     <% else %>
-
-        <% # disabled %>
-
+        <%= render partial: 'assignments/new_by_student_private', locals: { assignemnt: @assignment,
+                                                                           render_params: @render_params[:params][:Student]} %>
 <% end %>
-
-

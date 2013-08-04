@@ -1,33 +1,32 @@
-<h1>Listing assignments</h1>
+<% # defining the template title
+    case @render_mode
+    when 'public'
+      template_tile = 'Open assignments'
+    when 'private'
+      template_tile = 'Inbox'
+    else
+      template_tile = 'Assignments'
+    end
+%>
+<h1 class='sub-title'><%= template_tile %></h1>
 
-<table>
-  <tr>
-    <th>Subject</th>
-    <th>Technologies</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Type</th>
-    <th>Is disabled</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @assignments.each do |assignment| %>
-  <tr>
-    <td><%= assignment.subject %></td>
-    <td><%= assignment.technologies %></td>
-    <td><%= assignment.description %></td>
-    <td><%= assignment.status %></td>
-    <td><%= assignment.type %></td>
-    <td><%= assignment.is_disabled %></td>
-    <td><%= link_to 'Show', assignment %></td>
-    <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-    <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+<%= link_to 'New Assignment',  new_assignment_path, remote:true, class:'default-btn' %>
+<br />
 <br />
 
-<%= link_to 'New Assignment', new_assignment_path %>
+<% if  @assignments.blank?  %>
+     No data
+<% else %>
+    <div id='assignments-accordion'>
+      <% @assignments.each do |assignment| %>
+          <%= render partial: 'assignments/assignments_list',
+                     locals: { params: { assignment: assignment,
+                                         render_mode: @render_mode,
+                                         assignment_access: current_user.get_assignment_access } }%>
+      <% end %>
+    </div>
+<% end %>
+
+<% content_for :footer do %>
+    <%= link_to 'Back to Gallery', webinars_path, remote: true %>
+<% end %>

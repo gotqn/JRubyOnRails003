@@ -43,6 +43,15 @@
             </ul>
           </nav>
           <nav class='b-menu-container'>
+            <div class='e-trigger'><span class='e-icon e-icon-menu' data-icon='v'></span><a class='e-label'>Assignments</a></div>
+            <ul>
+              <li><%= link_to 'Inbox', assignments_path( render_mode:'private' ) , 'data-icon'=>'g',  class:'e-icon e-icon-user'%></li>
+              <li><%= link_to 'Open Assignments', assignments_path( render_mode:'public' ), 'data-icon'=>'d', class:'e-icon e-icon-camera'%></li>
+              <li><%= link_to 'New Assignment', new_assignment_path, 'data-icon'=>'d', class:'e-icon e-icon-camera'%></li>
+              <li><%= link_to 'Assignments', assignments_path, 'data-icon'=>'d', class:'e-icon e-icon-camera'%></li>
+            </ul>
+          </nav>
+          <nav class='b-menu-container'>
             <div class='e-trigger'><span class='e-icon e-icon-menu' data-icon='v'></span><a class='e-label'>Webinars</a></div>
             <ul>
               <li><%= link_to 'Gallery', webinars_path, 'data-icon'=>'g', remote:true, class:'e-icon e-icon-user'%></li>

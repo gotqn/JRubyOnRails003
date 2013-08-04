@@ -1,0 +1,127 @@
+<%
+    # Init params
+    assignment = params[:assignment]
+    render_mode = params[:render_mode]
+    assignment_access = params[:assignment_access]
+
+
+    # Flag for determining is assignment properties are valid
+    are_assignment_details_valid = true
+
+    # Defining assignment images and titles
+    public_image = '/assets/rails.png'
+    public_title = 'Opened assignment.'
+
+    private_opened_enable_image = '/assets/rails.png'
+    private_opened_enable_title = 'Ongoing assignment.'
+
+    private_opened_disable_image = '/assets/rails.png'
+    private_opened_disable_title = 'Ongoing assignment.'
+
+    private_closed_image = '/assets/rails.png'
+    private_closed_title = 'Assignment process completed.'
+
+    private_disabled_image = '/assets/rails.png'
+    private_disabled_title = 'Disabled assignment.'
+
+    if render_mode.nil?
+        private_opened_enable_image = '/assets/rails.png'
+        private_opened_disable_image = '/assets/rails.png'
+    end
+
+    # Defining current assignment image and title
+    if assignment.is_disabled
+        current_status_title = private_disabled_title
+        current_status_image = private_disabled_image
+    elsif assignment.assignment_type == 'public'
+        current_status_title = public_title
+        current_status_image = public_image
+    elsif assignment.assignment_type == 'private'
+        if assignment.status == 'closed'
+            current_status_title = private_closed_title
+            current_status_image = private_closed_image
+        elsif assignment.status == 'opened' and assignment.sua_is_disabled
+            current_status_title = private_opened_disable_title
+            current_status_image = private_opened_disable_image
+        elsif assignment.status == 'opened' and !assignment.sua_is_disabled
+            current_status_title = private_opened_enable_title
+            current_status_image = private_opened_enable_image
+        else
+            are_assignment_details_valid = false
+            current_status_title = ''
+            current_status_image = ''
+        end
+    else
+       are_assignment_details_valid = false
+       current_status_title = ''
+       current_status_image = ''
+    end
+%>
+
+<% if are_assignment_details_valid %>
+
+    <h3 id='security-users-header-<%= assignment.id %>'>
+      <span><%= assignment.subject %></span>
+      <img src='<%="#{current_status_image}"%>' class='user-tooltip' title='<%="#{current_status_title}"%>' />
+    </h3>
+    <% case render_mode	  %>
+    <% when 'public'  %>
+    <div>
+        <table>
+            <tr>
+                <td>&nbsp;</td>
+                <% if assignment_access == 'student' %>
+                <td><%= link_to 'Apply', edit_assignment_path(assignment) %></td>
+                <% else %>
+                <td><a href='javascript:void(0)' class='user-tooltip' title='You are not allowed to apply for assignments.'>Apply</a></td>
+                <% end %>
+            </tr>
+            <tr><td colspan='2'>&nbsp;</td></tr>
+            <tr><td>Description</td><td><div><%= assignment.description %></div></td></tr>
+            <tr><td>Technologies</td><td><div><%= assignment.technologies %></div></td></tr>
+            <tr><td>Instantiated by</td><td><%= assignment.sud_first_name + ' ' + assignment.sud_last_name %></td></tr>
+        </table>
+    </div>
+    <% when 'private' %>
+        <div>
+          <table>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                <%= link_to 'Details', assignment %>
+                <% if assignment.assignment_type == 'private' %>
+                    <%= link_to 'Withdraw', assignment %>
+                    <a  href='javascript:void(0)' class='user-tooltip' title='Can not edit assignment inspected by other user.'>Edit</a>
+                    <a  href='javascript:void(0)' class='user-tooltip' title='Can not delete assignment inspected by other user.'>Destroy</a>
+                <% else %>
+                    <%= link_to 'Edit', edit_assignment_path(assignment) %>
+                    <%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              </td>
+            </tr>
+            <tr><td colspan='2'>&nbsp;</td></tr>
+            <tr><td>Description</td><td><div><%= assignment.description %></div></td></tr>
+            <tr><td>Technologies</td><td><div><%= assignment.technologies %></div></td></tr>
+            <tr><td>Instantiated by</td><td><%= assignment.sud_first_name + ' ' + assignment.sud_last_name %></td></tr>
+          </table>
+        </div>
+    <% else %>
+        <div>
+          <table>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                <%= link_to 'Details', assignment %>
+                <%= link_to 'Withdraw', assignment %>
+                <%= link_to 'Edit', edit_assignment_path(assignment) %>
+                <%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+            <tr><td colspan='2'>&nbsp;</td></tr>
+            <tr><td>Description</td><td><div><%= assignment.description %></div></td></tr>
+            <tr><td>Technologies</td><td><div><%= assignment.technologies %></div></td></tr>
+            <tr><td>Instantiated by</td><td><%= assignment.sud_first_name + ' ' + assignment.sud_last_name %></td></tr>
+          </table>
+        </div>
+    <% end %>
+<% end %>

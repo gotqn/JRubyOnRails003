@@ -1,8 +1,5 @@
-<h1 class='sub-title'>Manage Security</h1>
-
 <div class='b-search-container'>
-  <%= search_form_for @search, url: search_security_users_manage_securities_path,
-                      method: :post, remote: true do |f| %>
+  <%= search_form_for @search, url: search_security_users_path, method: :post, remote: true do |f| %>
 
       <div class='text'>
         <%= f.label :email_cont, 'Email contains', 'data-icon' => 'm'%>
@@ -51,51 +48,8 @@
       </div>
 
       <div class='button'>
-      <input name="commit" type="button" value="Clear" class="e-clear-form">
+        <input name="commit" type="button" value="Clear" class="e-clear-form">
       </div>
 
   <% end %>
 </div>
-
-<div id='security-accordion'>
-
-  <% @security_users.each do |security_user| %>
-
-      <h3 id='security-users-role-header-<%= security_user.id	%>'>
-        <%= security_user.email %>
-        <% unless security_user.security_users_detail.nil? %>>
-        <%= security_user.security_users_detail.first_name %>
-        <%= security_user.security_users_detail.last_name %>
-        <%end %>
-      </h3>
-
-      <div>
-
-        <table>
-          <tr>
-            <td colspan='2'>
-              <%= link_to 'Show', security_users_manage_security_path(security_user), remote:true %>
-              <%= link_to 'Edit', edit_security_users_manage_security_path(security_user), remote:true %>
-            </td>
-          </tr>
-          <% current_roles = security_user.get_security_user_roles_by_id(false) %>
-          <% if current_roles.empty? %>
-              <tr><td colspan='2'>No roles.</td></tr>
-          <% else %>
-              <% current_roles.each do |role| %>
-                  <tr>
-                    <td><%= role.role %> </td>
-                    <td><%= role.description %> </td>
-                  </tr>
-              <% end %>
-          <% end %>
-        </table>
-      </div>
-
-  <% end %>
-
-</div>
-
-<% content_for :footer do %>
-    <%= link_to 'Back to Gallery', webinars_path, remote: true %>
-<% end %>

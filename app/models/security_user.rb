@@ -173,4 +173,22 @@ class SecurityUser < ActiveRecord::Base
     !self.security_users_roles.find_by_role('Instructor').nil?
   end
 
+  # The following method defines security access to assignment functionality.
+  # The highest security access is return.
+  def get_assignment_access
+    security_users_roles = self.security_users_roles
+    case
+      when security_users_roles.any?{|h| h[:role] == 'AssignmentManager'}
+        access = 'manager'
+      when security_users_roles.any?{|h| h[:role] == 'Instructor'}
+        access = 'instructor'
+      when security_users_roles.any?{|h| h[:role] == 'Student'}
+        access = 'student'
+      else
+        access = 'No access.'
+    end
+    access
+  end
+
+
 end

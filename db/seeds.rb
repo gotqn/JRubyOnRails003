@@ -19,7 +19,9 @@ roles = {
     Translator: 'Grants access to globalization management tools.',
 
     Instructor: 'Supervisor of students. Grants access to all advanced diploma process assignment tools.',
-    Student: 'Default user role for each user created by sign-in interface.'
+    Student: 'Default user role for each user created by sign-in interface.' ,
+
+    AssignmentManager: 'Grants access to all assignment management tools.'
 }
 
 roles.each do |role, description|
@@ -133,11 +135,11 @@ users.each do |user, data|
       security_user.security_users_manage_securities.build(security_users_role: SecurityUsersRole.find_by_role(role))
     }
 
+    security_user.build_security_users_detail(data[:Details])
     security_user.save!
-
-    security_users_detail = SecurityUsersDetail.new(data[:Details])
-    security_users_detail.security_user_id = security_user.id
-    security_users_detail.save!
+    #security_users_detail = SecurityUsersDetail.new(data[:Details])
+    #security_users_detail.security_user_id = security_user.id
+    #security_users_detail.save!
 
     #SecurityUsersDetail.where(security_user_id:  security_users_detail.security_user_id)
     #                   .first_or_create!(security_users_detail.attributes

@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724204700) do
+ActiveRecord::Schema.define(:version => 20130727132638) do
 
   create_table "assignments", :force => true do |t|
     t.string    "subject"
     t.string    "technologies"
     t.string    "description"
     t.string    "status"
-    t.string    "type"
+    t.string    "assignment_type"
     t.boolean   "is_disabled"
-    t.timestamp "created_at",   :null => false
-    t.timestamp "updated_at",   :null => false
+    t.timestamp "created_at",      :null => false
+    t.timestamp "updated_at",      :null => false
   end
 
   create_table "issues", :force => true do |t|

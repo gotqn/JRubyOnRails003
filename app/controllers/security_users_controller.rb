@@ -93,7 +93,7 @@ class SecurityUsersController < ApplicationController
       if @security_user.update_attributes(params[:security_user])
         format.html { redirect_to @security_user, notice: 'Security user was successfully updated.' }
         format.js
-      format.json { head :no_content }
+        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
         format.js { @security_user }

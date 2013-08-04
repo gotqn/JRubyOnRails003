@@ -1,0 +1,170 @@
+// Place all the styles related to the assigments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#assignments-accordion {
+
+  padding-bottom: 75px;
+  font-size:14px;
+  font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+
+  h3 {
+    color: #405c60;
+    padding: 0px !important;
+    height: 30px;
+
+    span:nth-child(2) {
+      padding: 5px 0px 5px 30px;
+      position: absolute;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      float: right;
+      margin: 4px;
+    }
+    /*
+     span.wrapper {
+       float: right;
+       padding: 5px 10px 5px 10px;
+       background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+       background-size: 20px 20px;
+       span {
+         float: none;
+         position: static;
+         padding: 5px;
+         &:nth-child(1), &:nth-child(3) {
+           visibility: hidden;
+         }
+       }
+     }
+
+
+     span.wrapper {
+
+       &.complete_static {
+         border-radius: 0px 4px 4px 0px;
+         background-color: #ac0;
+       }
+
+       &.complete_active {
+         border-radius: 0px 0px 4px 0px;
+         background-color: #ac0;
+       }
+
+       &.opened_static {
+         border-radius: 0 4px 4px 0px;
+         background-color: #E5D52B;
+       }
+
+       &.opened_active {
+         border-radius: 0px 0px 4px 0px;
+         background-color: #E5D52B;
+       }
+
+       &.ongoing_disabled_static {
+         border-radius: 0 4px 4px 0px;
+         background-color: #f90;
+       }
+
+       &.ongoing_disabled_active {
+         border-radius: 0px 0px 4px 0px;
+         background-color: #f90;
+       }
+
+       &.ongoing_mine_static {
+         border-radius: 0 4px 4px 0px;
+         background-color: #DA2424;
+       }
+
+       &.ongoing_mine_active {
+         border-radius: 0px 0px 4px 0px;
+         background-color: #DA2424;
+       }
+
+       &.disabled_static {
+         border-radius: 0 4px 4px 0px;
+         background-color: #808080;
+       }
+
+       &.disabled_active {
+         border-radius: 0px 0px 4px 0px;
+         background-color: #808080;
+       }
+     }
+     */
+  }
+
+  .assignments-accordion {
+    width: 300px;
+    font-size:13px;
+    font-family: 'RobotoCondensed', Calibri, Arial, sans-serif;
+
+    div {
+      color: #7f7c7c;
+
+      div {
+        padding-bottom: 10px;
+        font-style: italic;
+      }
+    }
+  }
+
+  table {
+    font-size:14px;
+    width: 100%;
+    padding: 0px 0px 25px 0px;
+    margin: 0px;
+
+
+    tr:nth-child(1) td:nth-child(2) {
+      float: right;
+    }
+
+    tr:nth-child(3), tr:nth-child(4), tr:nth-child(5), tr:nth-child(6) {
+
+      td:nth-child(1) {
+        color: #405c60;
+        width: 15%;
+      }
+
+      td:nth-child(2) {
+        color: #7f7c7c;
+      }
+    }
+  }
+
+  a {
+    font-size:13px;
+    display: inline-block;
+    min-width: 70px;
+    text-align: center;
+    font-weight: bold;
+    background: rgb(247, 248, 241);
+    margin-left: 10px;
+    padding: 5px 10px;
+    color: rgb(29, 162, 193);
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid rgb(203, 213, 214);
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s  linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s  linear;
+    transition: all 0.4s  linear;
+  }
+
+  a:hover {
+    color: rgb(57, 191, 215);
+    background: rgb(247, 247, 247);
+    border: 1px solid rgb(74, 179, 198);
+  }
+
+  a:active {
+    position: relative;
+    top: 1px;
+  }
+}
