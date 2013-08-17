@@ -2,8 +2,16 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
-    @render_mode = params[:render_mode]
-    @assignments = Assignment.new.get_assignments_by_render_mode(@render_mode, current_user.id)
+    results =  Assignment.new.get_assignments_by_render_mode(params[:render_mode], current_user.id, params[:q])
+    @assignments = results[:assignments]
+
+    @params = { render_mode:params[:render_mode],
+                user_mode: current_user.get_assignment_access,
+                search_options: results[:search_options] }
+
+    #@search = SecurityUser.search(params[:q])
+    #@security_users = @search.result.order(:email)
+
 
     respond_to do |format|
       format.html # index.html.erb

@@ -25,7 +25,11 @@ Beta::Application.routes.draw do
     end
   end
 
-  resources :assignments
+  resources :assignments  do
+    collection do
+      match 'search' => 'assignments#index', via: [:get, :post]
+    end
+  end
 
 
   match '/security_users/:security_user_id/email_confirmation/:activation_code' => 'email_confirmation#update'

@@ -1,43 +1,46 @@
 <div class='b-search-container'>
-  <%= search_form_for @search, url: search_security_users_path, method: :post, remote: true do |f| %>
+
+
+  <%
+     #   assignment_type
+      #  status
+      %>
+
+
+  <%= search_form_for search_options, url: search_assignments_path, method: :post do |f| %>
 
       <div class='text'>
-        <%= f.label :email_cont, 'Email contains', 'data-icon' => 'm'%>
-        <%= f.text_field :email_cont %>
+        <%= f.label :subject_cont, 'Subject contains', 'data-icon' => 'm'%>
+        <%= f.text_field :subject_cont %>
+      </div>
+
+      <div class='text'>
+        <%= f.label :technologies_cont, 'Technologies contains', 'data-icon' => 'm'%>
+        <%= f.text_field :technologies_cont %>
+      </div>
+
+      <div class='text'>
+        <%= f.label :description_cont, 'Description contains', 'data-icon' => 'm'%>
+        <%= f.text_field :description_cont %>
       </div>
 
       <div class='radio'>
-        <%= f.label :is_active_true, 'Is active' %>
-        <%= f.check_box :is_active_true, 'data-group' => 'radio'%>
-        <%= f.label :is_active_false, 'Is not active' %>
-        <%= f.check_box :is_active_false, 'data-group' => 'radio' %>
+        <%= f.label :is_disabled_true, 'Is disabled' %>
+        <%= f.check_box :is_disabled_true, 'data-group' => 'radio'%>
+        <%= f.label :is_disabled_false, 'Is not disabled' %>
+        <%= f.check_box :is_disabled_false, 'data-group' => 'radio' %>
       </div>
 
       <div class='text-date'>
         <table>
           <tr>
             <td>
-              <%= f.label :registration_date_gteq, 'Registration', 'data-icons' => '*' %>
-              <%= f.text_field :registration_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
+              <%= f.label :created_at_gteq, 'Created at', 'data-icons' => '*' %>
+              <%= f.text_field :created_at_gteq, placeholder:'Start Date', class:'b-date-picker' %>
             </td>
             <td>
-              <%= f.label :registration_date_lteq, 'Registration' %>
-              <%= f.text_field :registration_date_lteq, placeholder:'End Date', class:'b-date-picker' %>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <div class='text-date'>
-        <table>
-          <tr>
-            <td>
-              <%= f.label :last_log_in_date_gteq, 'Last log in', 'data-icons' => '*' %>
-              <%= f.text_field :last_log_in_date_gteq, placeholder:'Start Date', class:'b-date-picker' %>
-            </td>
-            <td>
-              <%= f.label :last_log_in_date_lteq, 'Registration' %>
-              <%= f.text_field :last_log_in_date_lteq, placeholder:'End Date', class:'b-date-picker' %>
+              <%= f.label :created_at_lteq, 'Created at' %>
+              <%= f.text_field :created_at_lteq, placeholder:'End Date', class:'b-date-picker' %>
             </td>
           </tr>
         </table>

@@ -25,9 +25,9 @@ class Assignment < ActiveRecord::Base
   validates :assignment_type, presence: true, inclusion: TYPES
   validates :subject, presence: true,
             format: { with: /\A[a-zA-Z\s]+\z/, message: 'Only letters and blank spaces allowed' },
-            length: { in: 8..32}
-  validates :technologies, presence: true, length: { in: 32..256}
-  validates :description, presence: true, length: { in: 32..512}
+            length: { in: 8..32 }
+  validates :technologies, presence: true, length: { in: 32..256 }
+  validates :description, presence: true, length: { in: 32..512 }
 
   # Scopes
 
@@ -107,20 +107,29 @@ class Assignment < ActiveRecord::Base
 
     # The following method returns assignments depending on passed render mode and user id.
     # The render modes are 'public', 'private' and 'default'(used for users in 'AssignmentManager' only).
-    def get_assignments_by_render_mode (render_mode, security_user_id)
+    def get_assignments_by_render_mode (render_mode, security_user_id, search_params)
+
+      search_options = Assignment.search(search_params)
+      #assignments = search_options.result
+
       case render_mode
         when 'public'
-          Assignment.get_public.get_details
+          assignments = Assignment.get_public.get_details.search(search_params).result
         when 'private'
-          Assignment.get_private(security_user_id).get_details
+          assignments = Assignment.get_private(security_user_id).get_details.search(search_params).result
+          #assignments.get_private(security_user_id).get_details
         else
           security_users_role = SecurityUsersRole.new
           if security_users_role.is_user_in_role(security_user_id,'AssignmentManager')
-            Assignment.all.get_details
+            assignments = Assignment.all.get_details.search(search_params).result
+            #assignments.get_details
           else
-            Assignment.get_private(security_user_id).get_details
+            #assignments.get_private(security_user_id).get_details
+            assignments = Assignment.get_private(security_user_id).get_details.search(search_params).result
           end
       end
+
+      { assignments: assignments, search_options: search_options }
     end
 
 end
