@@ -23,7 +23,7 @@ class PasswordResetsController < ApplicationController
     else
        @header = 'User not found.'
        @content = 'Your password reset token is invalid.'
-       render template: 'shared/system_message',
+       render template: 'shared/system_message_outline',
               locals: { header: @header, content: @content}
     end
   end

@@ -13,7 +13,7 @@
                 input_html: { placeholder:'Web-based "Content Management System" that allows publishing, editing and modifying content as well as maintenance from a central interface.'} %>
 
     <%= simple_form_for :security_users do |nf| %>
-        <%= nf.input :instructor_id, collection: @render_params[:params], label: 'Assign to instructor',
+        <%= nf.input :instructor_id, collection: @render_params[:params]['Instructor'], label: 'Assign to instructor',
                      label_method: :last,
                      value_method: :first,
                      prompt: 'Select project instructor',

@@ -26,7 +26,7 @@
 <% end %>
 
 <% if  @assignments.blank?  %>
-     No data
+     <%= render template: 'shared/system_message_inline', locals: { message_text: 'No assignments found.'} %>
 <% else %>
     <div id='assignments-accordion'>
       <% @assignments.each do |assignment| %>

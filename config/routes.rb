@@ -29,6 +29,7 @@ Beta::Application.routes.draw do
     collection do
       match 'search' => 'assignments#index', via: [:get, :post]
     end
+    resources :assignment_comments
   end
 
 

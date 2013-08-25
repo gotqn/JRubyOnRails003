@@ -25,7 +25,7 @@ $(document).ready(function(){
                 }
             });
 
-            $(icon).on('click',function(){
+            $(icon).on('click',function(event){
 
                 if(isOpen){
                     if(event){

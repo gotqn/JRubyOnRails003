@@ -15,10 +15,11 @@ class Assignment < ActiveRecord::Base
   # Relationships
   has_many :security_users_assignments
   has_many :security_users, through: :security_users_assignments
+  has_many :assignment_comments
 
   # Access to other relationships models' fields
-  # accepts_nested_attributes_for :security_users
   accepts_nested_attributes_for :security_users_assignments
+  accepts_nested_attributes_for :assignment_comments
 
   # Validations
   validates :status, presence: true, inclusion: STATUSES
@@ -35,9 +36,9 @@ class Assignment < ActiveRecord::Base
     scope :get_public, -> { where(assignment_type: 'public') }
 
     # The scope below returns all "private" assignments for particular user
-    scope :get_private, ->(security_user_id){
+    scope :get_private, ->(security_user_id,role){
                             joins(:security_users_assignments)
-                            .where(security_users_assignments: { security_user_id:security_user_id })
+                            .where(security_users_assignments: { security_user_id:security_user_id, role:role })
                             }
     #
     scope :get_details, -> { joins(:security_users)
@@ -110,22 +111,31 @@ class Assignment < ActiveRecord::Base
     def get_assignments_by_render_mode (render_mode, security_user_id, search_params)
 
       search_options = Assignment.search(search_params)
+      security_users_role = SecurityUsersRole.new
       #assignments = search_options.result
 
       case render_mode
         when 'public'
           assignments = Assignment.get_public.get_details.search(search_params).result
         when 'private'
-          assignments = Assignment.get_private(security_user_id).get_details.search(search_params).result
+          if security_users_role.is_user_in_role(security_user_id,'Instructor')
+            assignments = Assignment.get_private(security_user_id,'instructor').get_details.search(search_params).result
+          else
+            assignments = Assignment.get_private(security_user_id,'student').get_details.search(search_params).result
+          end
           #assignments.get_private(security_user_id).get_details
         else
-          security_users_role = SecurityUsersRole.new
           if security_users_role.is_user_in_role(security_user_id,'AssignmentManager')
             assignments = Assignment.all.get_details.search(search_params).result
             #assignments.get_details
           else
             #assignments.get_private(security_user_id).get_details
-            assignments = Assignment.get_private(security_user_id).get_details.search(search_params).result
+            if security_users_role.is_user_in_role(security_user_id,'Instructor')
+              assignments = Assignment.get_private(security_user_id,'instructor').get_details.search(search_params).result
+            else
+              assignments = Assignment.get_private(security_user_id,'student').get_details.search(search_params).result
+            end
+            #assignments = Assignment.get_private(security_user_id).get_details.search(search_params).result
           end
       end
 

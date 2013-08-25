@@ -1,35 +1,36 @@
-<p id="notice"><%= notice %></p>
+<h1 class='sub-title'>Assignment</h1>
 
-<p>
-  <b>Subject:</b>
-  <%= @assignment.subject %>
-</p>
+<table class='b-security-users-role'>
+  <tr>
+    <td>Subject:</td>
+    <td><%=  @assignment.subject %></td>
+  </tr>
+  <tr>
+    <td>Technologies:</td>
+    <td><%=  @assignment.technologies %></td>
+  </tr>
+  <tr>
+    <td>Description:</td>
+    <td><%=  @assignment.description %></td>
+  </tr>
+  <tr>
+    <td>Status:</td>
+    <td><%=  @assignment.status %></td>
+  </tr>
+  <tr>
+    <td>Type:</td>
+    <td><%=  @assignment.assignment_type %></td>
+  </tr>
+  <tr>
+    <td>Is disabled::</td>
+    <td><%=  @assignment.is_disabled %></td>
+  </tr>
+  <tr>
+    <td colspan='2'><%= link_to 'Edit', edit_assignment_path(@assignment) %></td>
+  </tr>
+</table>
 
-<p>
-  <b>Technologies:</b>
-  <%= @assignment.technologies %>
-</p>
+<% content_for :footer do%>
+    <%= link_to 'Back to Inbox', assignments_path( render_mode:'private' ), remote:true %>
+<% end %>
 
-<p>
-  <b>Description:</b>
-  <%= @assignment.description %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @assignment.status %>
-</p>
-
-<p>
-  <b>assignment_type:</b>
-  <%= @assignment.assignment_type %>
-</p>
-
-<p>
-  <b>Is disabled:</b>
-  <%= @assignment.is_disabled %>
-</p>
-
-
-<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Back', assignments_path %>

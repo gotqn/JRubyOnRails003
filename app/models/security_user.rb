@@ -44,6 +44,7 @@ class SecurityUser < ActiveRecord::Base
   has_many :security_users_roles, through: :security_users_manage_securities
   has_many :security_users_assignments
   has_many :assignments, through: :security_users_assignments
+  has_many :assignment_comments
 
   # Access to other relationships models' fields
   accepts_nested_attributes_for :security_users_roles
